@@ -1,5 +1,5 @@
 <?php
-
+include_once('db.inc.php');
 function checkLogin($username, $password) {
 	$post_data = array('username'=>$username, 'password'=>$password, 'testcookies'=>'0', 'iboard_url'=>''); 
 	$ckfile = tempnam("/tmp", "CURLCOOKIE");
@@ -18,7 +18,8 @@ function checkLogin($username, $password) {
 	if (preg_match("/(?<=You are logged in as ).*?<\/a\>/i", $index, $html_name)) {
 		preg_match("/(?<=>).*?(?=<)/i", $html_name[0], $name);
 		//echo ($name[0]);
-		return $name[0];
+		saveName($username, $name[0]);
+		return putSession($username);
 	} else {
 		return false;
 	}
@@ -54,5 +55,39 @@ function checkAttendance($username, $password, $arrID) {
 			return false;
 		}
 	}
+}
+
+function firstTimesSetting($username) {
+	
+}
+function isFirstLogin($username) {
+	
+}
+function checkValid($subjectIds, $email, $emailFreq) {
+	
+}
+function sendMail($to, $content) {
+	
+}
+function addToDraft($sendTo, $name, $subject, $absent, $percent) {
+	
+}
+function saveSettings($username, $subjectIds, $email, $emailFreq) {
+	
+}
+function stopService($username) {
+	
+}
+function putSession($username) {
+	
+}
+function getName($username) {
+	
+}
+function saveName($username, $name) {
+	
+}
+function checkSession($username, $session) {
+	
 }
 ?>
