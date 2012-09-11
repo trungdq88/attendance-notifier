@@ -7,10 +7,19 @@ if (isset($_POST['do'])) {
 	case 'login':
 		$password = $_POST['password'];
 		$result = checkLogin($username, $password);
+		if ($result) {
 			if (isFirstLogin($username)) {
-				firstTimesSetting($username);
+				firstTimesSetting($username, $result);
 			}
-		echo $result;
+			$sess = putSession($username);
+			$data[0] = $result; //Name
+			$data[1] = $sess;   //Session
+			$data = json_encode($data);
+		} else {
+			$data = 0;
+		}
+		//Trả về $result và $sess
+		echo $data;
 		die();
 	case 'savesetting':
 		$session = $_POST['session'];
@@ -20,7 +29,7 @@ if (isset($_POST['do'])) {
 			$emailFreq = $_POST['emailfreq'];
 			$valid = checkValid($subjectIds, $email, $emailFreq);
 			if ($valid == "YES") {
-				saveSettings($username, $subjectIds, $email, $emailFreq);
+				saveSettings($username, $session, $subjectIds, $email, $emailFreq);
 			}
 			echo $valid;
 		} else {

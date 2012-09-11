@@ -18,8 +18,7 @@ function checkLogin($username, $password) {
 	if (preg_match("/(?<=You are logged in as ).*?<\/a\>/i", $index, $html_name)) {
 		preg_match("/(?<=>).*?(?=<)/i", $html_name[0], $name);
 		//echo ($name[0]);
-		saveName($username, $name[0]);
-		return putSession($username);
+		return $name[0];
 	} else {
 		return false;
 	}
@@ -57,37 +56,92 @@ function checkAttendance($username, $password, $arrID) {
 	}
 }
 
-function firstTimesSetting($username) {
-	
+function firstTimesSetting($username, $name) {
+	if (isFirstLogin($username)) {
+		$sql = "INSERT INTO  `tblusers` (`ID` ,`Username` ,`Name` ,`Email` ,`EmailFreq` ,`SubjectIds` ,`Session`) VALUES (NULL ,  '".$username."',  '".$name."',  '".$username."@fpt.edu.vn',  '2',  '',  '');";
+		$result = mysql_query($sql);
+		return $result;
+	} else {
+		return "Username already exists!";
+	}
 }
 function isFirstLogin($username) {
-	
-}
-function checkValid($subjectIds, $email, $emailFreq) {
-	
-}
-function sendMail($to, $content) {
-	
+	$sql = "SELECT COUNT(*) FROM `tblusers` WHERE `Username` = '".$username."';";
+	$result = mysql_result(mysql_query($sql),0);
+	if ($result > 0) {
+		return 0;
+	} else {
+		return 1;
+	}
 }
 function addToDraft($sendTo, $name, $subject, $absent, $percent) {
-	
+	$sql = "INSERT INTO `tblemail` (`ID`, `SendTo`, `Name`, `Subject`, `Absent`, `Percent`) VALUES (NULL, '".$sendTo."', '".$name."', '".$subject."', '".$absent."', '".$percent."');";
+	$result = mysql_query($sql);
+	return $result;
 }
-function saveSettings($username, $subjectIds, $email, $emailFreq) {
-	
+//echo saveSettings("trungdq88","123","15,5,5","4","5");
+function saveSettings($username, $session, $subjectIds, $email, $emailFreq) {
+	if (!isFirstLogin($username) && checkSession($username, $session)) {
+		$sql = "UPDATE  `tblusers` SET  `Email` =  '".$email."',`EmailFreq` =  '".$emailFreq."',`SubjectIds` =  '".$subjectIds."' WHERE  `tblusers`.`Username` = '".$username."';";
+		$result = mysql_query($sql);
+		return $result;
+	} else {
+		return 0;
+	}
 }
-function stopService($username) {
-	
+
+function stopService($username, $session) {
+	if (!isFirstLogin($username) && checkSession($username, $session)) {
+		$sql = "DELETE FROM `tblusers` WHERE `tblusers`.`Username` = '".$username."';";
+		$result = mysql_query($sql);
+		return $result;
+	} else {
+		return 0;
+	}
+}
+function getUniqueCode($length = "") {	
+	$code = md5(uniqid(rand(), true));
+	if ($length != "") return substr($code, 0, $length);
+	else return $code;
 }
 function putSession($username) {
-	
+	$code = getUniqueCode(32);
+	$sql = "UPDATE `tblusers` SET `Session` = '".$code."' WHERE `tblusers`.`Username` = '".$username."';";
+	$result = mysql_query($sql);
+	return $code;
 }
-function getName($username) {
-	
-}
-function saveName($username, $name) {
-	
-}
+
 function checkSession($username, $session) {
-	
+	$sql = "SELECT `Session` FROM `tblusers` WHERE `Username` = '".$username."';";
+	$result = mysql_result(mysql_query($sql),0);
+	return ($result == $session);
+}
+
+function checkValid($subjectIds, $email, $emailFreq) {
+	$sub = explode(",",$subjectIds);
+	$f = 0;
+	foreach ($sub as $t) {
+		if (!is_numeric($t)) {
+			$f++;
+		}
+	}
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		$f++;
+	}
+	if (!is_numeric($emailFreq) || ((int)$emailFreq <= 0) || ((int)$emailFreq >= 5)) {
+		$f++;
+	}
+	return ($f == 0);
+}
+echo sendMail("trungdq88@gmail.com","Hello!","This is a test mail!");
+function sendMail($to, $subject, $content) {
+$to      = $to;
+$subject = $subject;
+$message = $content;
+$headers = 'From: no-reply@full.name.vn' . "\r\n" .
+    'Reply-To: no-reply@full.name.vn' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+return mail($to, $subject, $message, $headers);
 }
 ?>
