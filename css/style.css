@@ -90,4 +90,18 @@ input[type="submit"] {
     width:79px;
     height:28px;
 }
+/****select box****/
+#select-box {
+    border:1px solid red;
+    height:280px;
+    overflow:auto;
+    width:300px;
+}
+#filter-category a {
+    float:left;
+    display:inline-block;
+    margin:3px;
+
+}
+
 

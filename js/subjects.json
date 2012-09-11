@@ -1,0 +1,93 @@
+[
+    {
+        "category_name" : "Mathematics",
+        "subjects" : [
+            {
+                "name" : "Advanced Mathematics 1",
+                "id"   : "1"
+            },
+            {
+                "name" : "Advanced Mathematics 2",
+                "id"   : "2"
+            },
+            {
+                "name" : "Advanced Mathematics For Business",
+                "id"   : "3"
+            },
+            {
+                "name" : "Discrete Mathematics 1",
+                "id"   : "4"
+            },
+            {
+                "name" : "Discrete Mathematics 2",
+                "id"   : "5"
+            },
+            {
+                "name" : "Probability and Statistics",
+                "id"   : "6"
+            },
+            {
+                "name" : "Statistics and Data Processing",
+                "id"   : "7"
+            }
+        ]
+    },
+    {
+        "category_name" : "Computing Fundamentals",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            },
+            {
+                "name" : "Advanced Java",
+                "id"   : "2"
+            },
+            {
+                "name" : "Core Java",
+                "id"   : "3"
+            },
+            {
+                "name" : "C# & Dot Net",
+                "id"   : "4"
+            },
+            {
+                "name" : "Computer Networking",
+                "id"   : "5"
+            },
+            {
+                "name" : "Database Advanced",
+                "id"   : "6"
+            },
+            {
+                "name" : "Data Structure and Algorithm",
+                "id"   : "7"
+            },
+            {
+                "name" : "Introduction to Computing",
+                "id"   : "7"
+            },
+            {
+                "name" : "Introduction to Databases",
+                "id"   : "7"
+            },
+            {
+                "name" : "Introduction to Informatics",
+                "id"   : "7"
+            },
+            {
+                "name" : "Object Oriented Paradigm",
+                "id"   : "7"
+            },
+            {
+                "name" : "Operating System ",
+                "id"   : "7"
+            },
+            {
+                "name" : "Programming Fundamentals Using C",
+                "id"   : "7"
+            }
+
+        ]
+    }
+]

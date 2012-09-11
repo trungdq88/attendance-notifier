@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/elastic.js"></script>
+    <script type="text/javascript" src="js/getSubject.js"></script>
     <title>Front End</title>
 </head>
 <body>
@@ -32,6 +33,14 @@
                                 Maecenas dapibus elit in odio elementum non fringilla felis tincidunt. Donec pretium pretium consectetur.
                             </p>
                         </div><!--end #welcome-->
+                        <div id="select-box">
+                            <div id="filter-category"></div>
+                            <div id="select-item">
+                                <form action="" method="">
+
+                                </form>
+                            </div>
+                        </div><!--end select-box-->
                     </div><!--end #main-content-->
                     <div id="sidebar" class="column fixed equal-height" style="width:335px;">
                         <div id="login-form">
