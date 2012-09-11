@@ -45,7 +45,7 @@
                     <div id="sidebar" class="column fixed equal-height" style="width:335px;">
                         <div id="login-form">
                             <h1>Đăng Nhập</h1>
-                            <form action="" method="POST">
+                            <form action="index.php" method="POST">
                                 <p>
                                     <label for="email">Email:</label>
                                     <input type="text" name="email" id="email" />

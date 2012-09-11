@@ -43,5 +43,9 @@ $(document).ready(function() {
 
     });
 
-
+    //trigger when submit clicked!
+    $('#login-form form').submit(function() {
+        alert("hello");
+        return false;
+    })
 });
