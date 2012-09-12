@@ -133,15 +133,15 @@ function checkValid($subjectIds, $email, $emailFreq) {
 	}
 	return ($f == 0);
 }
-echo sendMail("trungdq88@gmail.com","Hello!","This is a test mail!");
-function sendMail($to, $subject, $content) {
-$to      = $to;
-$subject = $subject;
-$message = $content;
-$headers = 'From: no-reply@full.name.vn' . "\r\n" .
-    'Reply-To: no-reply@full.name.vn' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
 
-return mail($to, $subject, $message, $headers);
+function sendMail($to, $subject, $content) {
+	$to      = $to;
+	$subject = $subject;
+	$message = $content;
+	$headers = 'From: no-reply@full.name.vn' . "\r\n" .
+		'Reply-To: no-reply@full.name.vn' . "\r\n" .
+		'X-Mailer: PHP/' . phpversion();
+	
+	return mail($to, $subject, $message, $headers);
 }
 ?>

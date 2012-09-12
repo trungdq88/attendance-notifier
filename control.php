@@ -5,6 +5,13 @@ if (isset($_POST['do'])) {
 	$username = $_POST['username'];
 	switch ($do) {
 	case 'login':
+		//Dữ liệu giả --------------------------
+			$data[0] = "Tên $username"; //Name
+			$data[1] = "SeSsIoNiD";   //Session
+			$data = json_encode($data);
+			echo $data;
+			die();
+		//Dữ liệu giả --------------------------
 		$password = $_POST['password'];
 		$result = checkLogin($username, $password);
 		if ($result) {

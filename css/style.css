@@ -78,7 +78,28 @@ input[type="text"] {
     height: 32px;
     width: 100%;
 }
-input[type="submit"] {
+input[type="password"] {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    -moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #C0C0C0 #D9D9D9 #D9D9D9;
+    border-image: none;
+    border-radius: 1px 1px 1px 1px;
+    border-right: 1px solid #D9D9D9;
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+    margin: 0;
+    padding: 0 8px;
+    font-size: 15px;
+    height: 32px;
+    width: 100%;
+}
+
+input[type="button"] {
     background-color: #4D90FE;
     background-image: -moz-linear-gradient(center top , #4D90FE, #4787ED);
     border: 1px solid #3079ED;
