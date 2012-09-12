@@ -6,8 +6,11 @@ if (isset($_POST['do'])) {
 	switch ($do) {
 	case 'login':
 		//Dữ liệu giả --------------------------
-			$data[0] = "Tên $username"; //Name
-			$data[1] = "SeSsIoNiD";   //Session
+			$data['name'] = "Tên $username"; //Name
+			$data['sess'] = "SeSsIoNiD";   //Session
+			$data['subjectIds'] = "316,253,6,43,266";
+			$data['email'] = "somewhere@yahoo.com";
+			$data['emailFreq'] = "4";
 			$data = json_encode($data);
 			echo $data;
 			die();
@@ -19,8 +22,11 @@ if (isset($_POST['do'])) {
 				firstTimesSetting($username, $result);
 			}
 			$sess = putSession($username);
-			$data[0] = $result; //Name
-			$data[1] = $sess;   //Session
+			$data['name'] = $result; //Name
+			$data['sess'] = $sess;   //Session
+			$data['subjectIds'] = 0;
+			$data['email'] = 0;
+			$data['emailFreq'] = 0;
 			$data = json_encode($data);
 		} else {
 			$data = 0;
