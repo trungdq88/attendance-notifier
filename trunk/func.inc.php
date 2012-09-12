@@ -38,6 +38,7 @@ function checkAttendance($username, $password, $arrID) {
 	$index = curl_exec($ch); 
 	curl_close($ch);
 	//echo $index;
+	$arrSubject = array();
 	foreach ($arrID as $id) {
 		$ch = curl_init(); 
 		curl_setopt($ch, CURLOPT_URL, 'http://cms-hcm.fpt.edu.vn/elearning/mod/attforblock/view.php?id='.$id); 
@@ -47,13 +48,24 @@ function checkAttendance($username, $password, $arrID) {
 		$pm = curl_exec($ch);
 		curl_close($ch);
 		//echo $pm;
+
 		if ($pm) {
-			//Get info
-			//Return info
+			// /(?<=\>Absent: ).+<\/strong\>/i
+			// /(?<=\<strong\>)\d+(?=\<\/strong\>)/i
+			$absent = 0;
+			$total = 0;
+			if (preg_match("/(?<=\>Absent:).+<\/strong\>/i", $pm, $html_absent)) {
+				preg_match("/(?<=\<strong\>)\d+(?=\<\/strong\>)/i", $html_absent[0], $absent);
+			}
+			if (preg_match("/(?<=\>Number of Sessions:).+<\/strong\>/i", $pm, $html_total)) {
+				preg_match("/(?<=\<strong\>)\d+(?=\<\/strong\>)/i", $html_total[0], $total);
+			}
+			array_push($arrSubject ,array('ID' => $id, 'absent' => $absent[0], 'total' => $total[0]));
 		} else {
-			return false;
+			//return false;
 		}
 	}
+	return $arrSubject;
 }
 
 function firstTimesSetting($username, $name) {

@@ -7,8 +7,8 @@ $(document).ready(function(e) {
 		$.post('control.php', data, function(d){
 			if (d) {
 				//Login successful
-				var name = d[0];
-				var sess = d[1];
+				var name = d['name'];
+				var sess = d['sess'];
 				switchToUserPanel(name, sess);
 			} else {
 				//Login failed
