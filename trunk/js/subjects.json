@@ -89,5 +89,113 @@
             }
 
         ]
+    },
+    {
+        "category_name" : "Chính Trị",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "English",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Chinese",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Japanese",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Accounting",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Banking",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Economics",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Finance",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "General Management",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Marketing",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Software Engineering",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
+    },
+    {
+        "category_name" : "Soft Skill",
+        "subjects" : [
+            {
+                "name" : "Alice",
+                "id"   : "1"
+            }
+        ]
     }
 ]

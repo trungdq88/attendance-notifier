@@ -22,6 +22,15 @@ $(document).ready(function(e) {
 function switchToUserPanel(name, sess) {
 	$('#loginpanel').hide(400);
 	$('#lblUsername').html(name);
-	$('#userpanel').show(400);	
+	$('#userpanel').show(400);
 	
 }
+
+//selected subject trigger, get subject name of selected item
+/*$(document).ready(function() {
+    $('input[type="checkbox"]').live('click',function(){
+        $('input[type="checkbox"]:checked').each(function() {
+            $('.append').append($(this).attr('data'));
+        });
+    })
+});*/
