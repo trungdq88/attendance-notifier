@@ -57,6 +57,7 @@ $(document).ready(function() {
         });
 
     });
+
     function checkAdded(count) {
         if(count == 0) {
             $('#select-item-content p').html("Chưa có môn nào được chọn").addClass('empty');
