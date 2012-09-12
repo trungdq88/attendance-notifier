@@ -11,16 +11,15 @@ $(document).ready(function() {
     $.getJSON('js/subjects.json',function(data) {
         var $html = '';
         $.each(data, function(index, category) {
-            $html += '<div class="cat-box"><h1>'+ category.category_name +'</h1>';
+            $html += '<div class="cat-box '+ category.category_name +'"><h1>'+ category.category_name +'</h1><ul>';
             //get category name to make a item for filter panel
             filterItem.push(category.category_name+'');
             $.each(category.subjects, function(index, subject) {
-                $html += '<p><input type="checkbox" name="" value="'+ subject.id +'" id="'+ subject.id +'" />';
-                $html += '<label for="'+ subject.id +'">'+ subject.name +'</label></p>';
+                $html += '<li title="Trong mục '+ category.category_name +'" id="'+ subject.id +'">'+ subject.name +'<span class="add">Chọn</span></li>';
             });
-            $html += '</div><!--end cat-->';
+            $html += '</ul></div><!--end cat-->';
         });
-        $('#select-item form').html($html);
+        $('#select-box').append($html);
 
         //add filter panel
         var $filter_html="<h3 class='filter-title'>Lọc Môn Học</h3><a href='#'>All</a>";
@@ -39,13 +38,30 @@ $(document).ready(function() {
                 }).hide();
             }
             return false;
-        })
+        });
+
+        //select subject affect
+        var count = 0;//count numbers of subject selected
+        $('.add').live('click',function() {
+            $(this).parent().appendTo('#select-item-content ul').children('.add').text('Bỏ').removeClass('add').addClass('remove');
+            count++;
+            checkAdded(count);
+        });
+
+        $('.remove').live('click',function() {
+           var parent = $(this).parent().attr('title').split(' ')[2];
+           var $elem = $(this).removeClass('remove').addClass('add').text('Chọn').parent();
+           $('.'+parent+' ul').append($elem);
+           count--;
+           checkAdded(count);
+        });
 
     });
-
-    //trigger when submit clicked!
-    $('#login-form form').submit(function() {
-        alert("hello");
-        return false;
-    })
+    function checkAdded(count) {
+        if(count == 0) {
+            $('#select-item-content p').html("Chưa có môn nào được chọn").addClass('empty');
+        } else {
+            $('#select-item-content p').html("Bạn đã chọn "+ count +" môn").removeClass('empty').addClass('not-empty');
+        }
+    }
 });

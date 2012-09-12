@@ -25,7 +25,7 @@
             <div id="content" class="unit">
                 <div id="loginpanel" class="columns same-height">
 
-                    <div id="main-content" class="column elastic">
+                    <div id="main-content-loginpanel" class="column elastic">
                         <div id="welcome">
                             <h1>Chào mừng các bạn đến với Attendance Notifier</h1>
                             <p>
@@ -57,35 +57,61 @@
                 </div>
                 
                 <div id="userpanel" class="columns same-height">
-                	<div id="main-content" class="column elastic">
-                        <div id="User Panel">
+                	<div id="main-content-userpanel" class="column">
+                        <div id="userpanel-welcome">
                             <h1>Xin chào <span id="lblUsername"></span>!</h1>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu neque in massa tristique aliquet fringilla a libero.
                                 Vestibulum porttitor ligula ut tellus vestibulum pharetra. Donec luctus dui et eros vehicula sed ullamcorper enim vehicula.
                                 Maecenas dapibus elit in odio elementum non fringilla felis tincidunt. Donec pretium pretium consectetur.
                             </p>
-                        </div><!--end #welcome-->
+                        </div><!--end #userpanel-welcome-->
                         
                         <div id="select-box">
-                            <div id="filter-category"></div>
-                            <div id="select-item">
-                                <form action="" method="">
-
-                                </form>
+                            <div id="filter-category" class="clearfix"></div>
+                            <div id="select-item" class="clearfix">
                             </div>
                         </div>
+                        <div id="user-requirement">
+                             <div id="selected-item">
+                                  <h3>Các môn đã được chọn</h3>
+                                  <div id="select-item-content">
+                                      <ul>
+
+                                      </ul>
+                                      <p class="empty">Bạn chưa chọn môn nào</p>
+                                  </div><!--end select-item-content-->
+                             </div><!--end #selected-item-->
+                            <form action="" method="POST">
+                                <p>
+                                    <label for="email">Địa Chỉ Email Nhận Thông Báo:</label>
+                                    <input id="email" type="text" name="email" />
+                                </p>
+                                <p>
+                                    <label for="frequen">Tần Xuất Gửi Email:</label>
+                                    <select name="frequen" id="frequen">
+                                        <option value="1">1 Lần/Ngày</option>
+                                        <option value="2">2 Lần/Ngày</option>
+                                        <option value="3">3 Lần/Ngày</option>
+                                        <option value="4">4 Lần/Ngày</option>
+                                        <option value="5">5 Lần/Ngày</option>
+                                    </select>
+                                </p>
+                            </form><!--end form-->
+                            <div id="button-area">
+                                <input id="save-button" type="button" value="Lưu Thông Tin">
+                                <input id="stop-service" type="button" value="Ngưng Dịch Vụ">
+                            </div><!--end control-area-->
+                        </div><!--end user-requirement-->
                         <!--end select-box-->
-                        <br />
-                        <input id="btnSave" type="button" name="submit" value="Lưu cài đặt" />
                     </div><!--end #main-content-->
                     
-                </div>
+                </div><!--end userpanel-->
             </div><!--end #content-->
         </div>
 
-        <div id="footer" class="columns unit">
-            <div class="elastic">
+        <div id="footer" class="columns unit clearfix">
+            <div class="elastic clearfix">
                 <p>&copy; 2012 | Attendance Checker</p>
             </div>
         </div><!--end footer-->
