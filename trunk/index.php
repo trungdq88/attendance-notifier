@@ -10,8 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/elastic.js"></script>
-    <script type="text/javascript" src="js/action.js"></script>
     <script type="text/javascript" src="js/getSubject.js"></script>
+    <script type="text/javascript" src="js/action.js"></script>
     <title>Attendance Notifier</title>
 </head>
 <body>
