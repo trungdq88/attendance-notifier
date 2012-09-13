@@ -82,7 +82,7 @@
                                       <p class="empty">Bạn chưa chọn môn nào</p>
                                   </div><!--end select-item-content-->
                              </div><!--end #selected-item-->
-                            <form action="" method="POST">
+                            <form>
                                 <p>
                                     <label for="email">Địa Chỉ Email Nhận Thông Báo:</label>
                                     <input id="email" type="text" name="email" />
@@ -90,11 +90,10 @@
                                 <p>
                                     <label for="frequen">Tần Xuất Gửi Email:</label>
                                     <select name="frequen" id="frequen">
-                                        <option value="1">1 Lần/Ngày</option>
-                                        <option value="2">2 Lần/Ngày</option>
-                                        <option value="3">3 Lần/Ngày</option>
-                                        <option value="4">4 Lần/Ngày</option>
-                                        <option value="5">5 Lần/Ngày</option>
+                                        <option value="1">Mỗi ngày</option>
+                                        <option value="2">2 ngày</option>
+                                        <option value="3">3 ngày</option>
+                                        <option value="4">Mỗi tuần</option>
                                     </select>
                                 </p>
                             </form><!--end form-->

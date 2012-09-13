@@ -1,5 +1,32 @@
 <?php
 include_once('db.inc.php');
+
+function mr($string) {
+	return mysql_real_escape_string($string);	
+}
+
+function encrypt($decrypted) {
+	$password = 'n*3h2HsaP1%hdXCa';
+	$salt = '!kQm*fF3pXe1Kbm%9';
+	$key = hash('SHA256', $salt . $password, true);
+	srand(); $iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC), MCRYPT_RAND);
+	if (strlen($iv_base64 = rtrim(base64_encode($iv), '=')) != 22) return false;
+	$encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $decrypted . md5($decrypted), MCRYPT_MODE_CBC, $iv));
+	return $iv_base64 . $encrypted;
+ } 
+
+function decrypt($encrypted) {
+	$password = 'n*3h2HsaP1%hdXCa';
+	$salt = '!kQm*fF3pXe1Kbm%9';
+	$key = hash('SHA256', $salt . $password, true);
+	$iv = base64_decode(substr($encrypted, 0, 22) . '==');
+	$encrypted = substr($encrypted, 22);
+	$decrypted = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, base64_decode($encrypted), MCRYPT_MODE_CBC, $iv), "\0\4");
+	$hash = substr($decrypted, -32);
+	$decrypted = substr($decrypted, 0, -32);
+	if (md5($decrypted) != $hash) return false;
+	return $decrypted;
+ }
 function checkLogin($username, $password) {
 	$post_data = array('username'=>$username, 'password'=>$password, 'testcookies'=>'0', 'iboard_url'=>''); 
 	$ckfile = tempnam("/tmp", "CURLCOOKIE");
@@ -14,10 +41,8 @@ function checkLogin($username, $password) {
 	$index = curl_exec($ch); 
 	curl_close($ch);
 	//$index = "You are logged in as <a href=\"http://cms-hcm.fpt.edu.vn/elearning/user/view.php?id=2292&amp;course=1\">Trung Đinh Quang</a>";
-	
 	if (preg_match("/(?<=You are logged in as ).*?<\/a\>/i", $index, $html_name)) {
 		preg_match("/(?<=>).*?(?=<)/i", $html_name[0], $name);
-		//echo ($name[0]);
 		return $name[0];
 	} else {
 		return false;
@@ -50,8 +75,6 @@ function checkAttendance($username, $password, $arrID) {
 		//echo $pm;
 
 		if ($pm) {
-			// /(?<=\>Absent: ).+<\/strong\>/i
-			// /(?<=\<strong\>)\d+(?=\<\/strong\>)/i
 			$absent = 0;
 			$total = 0;
 			if (preg_match("/(?<=\>Absent:).+<\/strong\>/i", $pm, $html_absent)) {
@@ -68,9 +91,11 @@ function checkAttendance($username, $password, $arrID) {
 	return $arrSubject;
 }
 
-function firstTimesSetting($username, $name) {
-	if (isFirstLogin($username)) {
-		$sql = "INSERT INTO  `tblusers` (`ID` ,`Username` ,`Name` ,`Email` ,`EmailFreq` ,`SubjectIds` ,`Session`) VALUES (NULL ,  '".$username."',  '".$name."',  '".$username."@fpt.edu.vn',  '2',  '',  '');";
+function firstTimesSetting($username, $name, $password) {
+
+	if (isFirstLogin($username)) {		
+		$password = encrypt($password);
+		$sql = "INSERT INTO  `tblusers` (`ID` ,`Username` ,`Name` ,`Email` ,`EmailFreq` ,`SubjectIds` ,`Session` ,`Password`) VALUES (NULL ,  '".mr($username)."',  '".mr($name)."',  '".mr($username)."@fpt.edu.vn',  '2',  '',  '', '".mr($password)."');";
 		$result = mysql_query($sql);
 		return $result;
 	} else {
@@ -78,7 +103,7 @@ function firstTimesSetting($username, $name) {
 	}
 }
 function isFirstLogin($username) {
-	$sql = "SELECT COUNT(*) FROM `tblusers` WHERE `Username` = '".$username."';";
+	$sql = "SELECT COUNT(*) FROM `tblusers` WHERE `Username` = '".mr($username)."';";
 	$result = mysql_result(mysql_query($sql),0);
 	if ($result > 0) {
 		return 0;
@@ -87,16 +112,24 @@ function isFirstLogin($username) {
 	}
 }
 function addToDraft($sendTo, $name, $subject, $absent, $percent) {
-	$sql = "INSERT INTO `tblemail` (`ID`, `SendTo`, `Name`, `Subject`, `Absent`, `Percent`) VALUES (NULL, '".$sendTo."', '".$name."', '".$subject."', '".$absent."', '".$percent."');";
+	$sql = "INSERT INTO `tblemail` (`ID`, `SendTo`, `Name`, `Subject`, `Absent`, `Percent`) VALUES (NULL, '".mr($sendTo)."', '".mr($name)."', '".mr($subject)."', '".mr($absent)."', '".mr($percent)."');";
 	$result = mysql_query($sql);
 	return $result;
 }
-//echo saveSettings("trungdq88","123","15,5,5","4","5");
+//echo saveSettings("trungdq88","123","66,11,23","asd@yahoo","99");
 function saveSettings($username, $session, $subjectIds, $email, $emailFreq) {
 	if (!isFirstLogin($username) && checkSession($username, $session)) {
-		$sql = "UPDATE  `tblusers` SET  `Email` =  '".$email."',`EmailFreq` =  '".$emailFreq."',`SubjectIds` =  '".$subjectIds."' WHERE  `tblusers`.`Username` = '".$username."';";
-		$result = mysql_query($sql);
-		return $result;
+		$sql = "UPDATE  `tblusers` SET  `Email` =  '".mr($email)."',`EmailFreq` =  '".mr($emailFreq)."',`SubjectIds` =  '".mr($subjectIds)."' WHERE  `tblusers`.`Username` = '".mr($username)."';";
+		$result = 0;
+		$result += !mysql_query($sql);
+		$sql2 = "DELETE FROM `tblatt` WHERE `tblatt`.`Username` = '".mr($username)."';";
+		$result += !mysql_query($sql2);
+		$arrSubjectId = explode(",",$subjectIds);
+		foreach ($arrSubjectId as $r) {
+			$sql3 = "INSERT INTO  `tblatt` (`ID` ,`SubjectID` ,`Username` ,`Total` ,`Absent`) VALUES (NULL ,  '".mr($r)."',  '".mr($username)."',  '0',  '0');";
+			$result += !mysql_query($sql3);
+		}
+		return !$result;
 	} else {
 		return 0;
 	}
@@ -104,9 +137,11 @@ function saveSettings($username, $session, $subjectIds, $email, $emailFreq) {
 
 function stopService($username, $session) {
 	if (!isFirstLogin($username) && checkSession($username, $session)) {
-		$sql = "DELETE FROM `tblusers` WHERE `tblusers`.`Username` = '".$username."';";
+		$sql = "DELETE FROM `tblusers` WHERE `tblusers`.`Username` = '".mr($username)."';";
+		$sql2 = "DELETE FROM `tblatt` WHERE `tblatt`.`Username` = '".mr($username)."';";
 		$result = mysql_query($sql);
-		return $result;
+		$result2 = mysql_query($sql2);
+		return ($result && $result2);
 	} else {
 		return 0;
 	}
@@ -118,13 +153,13 @@ function getUniqueCode($length = "") {
 }
 function putSession($username) {
 	$code = getUniqueCode(32);
-	$sql = "UPDATE `tblusers` SET `Session` = '".$code."' WHERE `tblusers`.`Username` = '".$username."';";
+	$sql = "UPDATE `tblusers` SET `Session` = '".mr($code)."' WHERE `tblusers`.`Username` = '".mr($username)."';";
 	$result = mysql_query($sql);
 	return $code;
 }
 
 function checkSession($username, $session) {
-	$sql = "SELECT `Session` FROM `tblusers` WHERE `Username` = '".$username."';";
+	$sql = "SELECT `Session` FROM `tblusers` WHERE `Username` = '".mr($username)."';";
 	$result = mysql_result(mysql_query($sql),0);
 	return ($result == $session);
 }
@@ -153,7 +188,17 @@ function sendMail($to, $subject, $content) {
 	$headers = 'From: no-reply@full.name.vn' . "\r\n" .
 		'Reply-To: no-reply@full.name.vn' . "\r\n" .
 		'X-Mailer: PHP/' . phpversion();
-	
 	return mail($to, $subject, $message, $headers);
+}
+
+function getOldAbsent($username, $subjectId) {
+	$sql = "SELECT `Absent` FROM `tblatt` WHERE `Username` = '".mr($username)."' AND `SubjectID` = ".mr($subjectId);
+	$oldAbsent = (int)@mysql_result(mysql_query($sql),0);
+	return $oldAbsent;
+}
+function setNewAbsent($username, $subjectId, $absent) {
+	$sql = "UPDATE  `tblatt` SET  `Absent` =  '".mr($absent)."' WHERE  `tblatt`.`Username` = '".mr($username)."' AND `tblatt`.`SubjectID` = ".$subjectId.";";
+	$result = mysql_query($sql);
+	return $result;
 }
 ?>
