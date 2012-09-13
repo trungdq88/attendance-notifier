@@ -19,18 +19,19 @@ $(document).ready(function() {
             });
             $html += '</ul></div><!--end cat-->';
         });
-        $('#select-box').append($html);
+        $('#select-item').append($html);
 
         //add filter panel
-        var $filter_html="<h3 class='filter-title'>Lọc Môn Học</h3><a href='#'>All</a>";
+		var $filter_html="<span class='filter-title'>Lọc Môn Học: </span><select name='select-subject' id='select-subject'><option>All</option>";
         $.each(filterItem, function(index, value) {
-            $filter_html += '<a href="#">'+ value +'</a>';
+			$filter_html += "<option>" + value + "</option>";
         });
+		$filter_html += "</select>";
         $('#filter-category').html($filter_html);
 
         //trigger filter action by click!
-        $('#filter-category a').click(function() {
-            var text = $(this).text();
+		$('#select-subject').change(function() {
+            var text = $(this).val();
             $('.cat-box').css('display','block');
             if(text != 'All') {
                 $('.cat-box').not(function() {
@@ -39,7 +40,6 @@ $(document).ready(function() {
             }
             return false;
         });
-
         //select subject affect
         var count = 0;//count numbers of subject selected
         $('.add').live('click',function() {

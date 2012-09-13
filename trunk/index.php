@@ -28,11 +28,7 @@
                     <div id="main-content-loginpanel" class="column elastic">
                         <div id="welcome">
                             <h1>Chào mừng các bạn đến với Attendance Notifier</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu neque in massa tristique aliquet fringilla a libero.
-                                Vestibulum porttitor ligula ut tellus vestibulum pharetra. Donec luctus dui et eros vehicula sed ullamcorper enim vehicula.
-                                Maecenas dapibus elit in odio elementum non fringilla felis tincidunt. Donec pretium pretium consectetur.
-                            </p>
+                            <p></p>
                         </div><!--end #welcome-->
                         
                     </div><!--end #main-content-->
@@ -60,11 +56,7 @@
                 	<div id="main-content-userpanel" class="column">
                         <div id="userpanel-welcome">
                             <h1>Xin chào <span id="lblUsername"></span>!</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu neque in massa tristique aliquet fringilla a libero.
-                                Vestibulum porttitor ligula ut tellus vestibulum pharetra. Donec luctus dui et eros vehicula sed ullamcorper enim vehicula.
-                                Maecenas dapibus elit in odio elementum non fringilla felis tincidunt. Donec pretium pretium consectetur.
-                            </p>
+                            <p></p>
                         </div><!--end #userpanel-welcome-->
                         
                         <div id="select-box">
