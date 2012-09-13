@@ -19,12 +19,13 @@
 		/*
 		$attResults = Array (
 						Array (
-						'id' => '4',
-						'absent' => '0',
+						'id' => '1',
+						'absent' => '2',
 						'total' => '7'
 						)
 					);
 		*/
+		
 		foreach ($attResults as $re) {
 			$id = $re['id'];				// ID môn học.
 			$absent = (int)$re['absent'];	// Số slot absent hiện tại.

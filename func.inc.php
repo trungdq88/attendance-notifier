@@ -181,13 +181,13 @@ function checkValid($subjectIds, $email, $emailFreq) {
 	return ($f == 0);
 }
 
-function sendMail($to, $subject, $content) {
-	$to      = $to;
-	$subject = $subject;
-	$message = $content;
-	$headers = 'From: no-reply@full.name.vn' . "\r\n" .
-		'Reply-To: no-reply@full.name.vn' . "\r\n" .
-		'X-Mailer: PHP/' . phpversion();
+function sendMail($to, $subject, $message) {
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+	$headers .= 'From: no-reply@full.name.vn' . "\r\n";
+	$headers .= 'X-Mailer: PHP/' . "\r\n";
+
 	return mail($to, $subject, $message, $headers);
 }
 
@@ -201,4 +201,5 @@ function setNewAbsent($username, $subjectId, $absent) {
 	$result = mysql_query($sql);
 	return $result;
 }
+
 ?>
