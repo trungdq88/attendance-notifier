@@ -60,20 +60,22 @@
                         </div><!--end #userpanel-welcome-->
                         
                         <div id="select-box">
+                        	<h3>Các môn học</h3>
                             <div id="filter-category" class="clearfix"></div>
                             <div id="select-item" class="clearfix">
                             </div>
                         </div>
-                        <div id="user-requirement">
-                             <div id="selected-item">
-                                  <h3>Các môn đã được chọn</h3>
-                                  <div id="select-item-content">
-                                      <ul>
+                        <div id="selected-item">
+                              <h3>Các môn đã được chọn</h3>
+                              <div id="select-item-content">
+                                  <p class="empty">Bạn chưa chọn môn nào</p>
+                                  <ul>
 
-                                      </ul>
-                                      <p class="empty">Bạn chưa chọn môn nào</p>
-                                  </div><!--end select-item-content-->
-                             </div><!--end #selected-item-->
+                                  </ul>
+                              </div><!--end select-item-content-->
+                         </div><!--end #selected-item-->
+                        <div id="user-requirement">
+                        	<h3>Cài đặt</h3>
                             <form>
                                 <p>
                                     <label for="email">Địa Chỉ Email Nhận Thông Báo:</label>
@@ -89,12 +91,12 @@
                                     </select>
                                 </p>
                             </form><!--end form-->
-                            <div id="button-area">
-                                <input id="save-button" type="button" value="Lưu Thông Tin">
-                                <input id="stop-service" type="button" value="Ngưng Dịch Vụ">
-                            </div><!--end control-area-->
                         </div><!--end user-requirement-->
                         <!--end select-box-->
+                        <div id="button-area">
+                            <input id="save-button" type="button" value="Lưu Thông Tin">
+                            <input id="stop-service" type="button" value="Ngưng Dịch Vụ">
+                        </div><!--end control-area-->
                     </div><!--end #main-content-->
                     
                 </div><!--end userpanel-->

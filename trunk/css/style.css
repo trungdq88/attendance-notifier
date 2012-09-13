@@ -112,7 +112,19 @@ input[type="button"] {
 }
 /****select box****/
 #select-box {
-    border:3px solid #DD4B39;
+    border:3px solid #06C;
+    padding:10px 5px;
+    height:350px;
+    overflow:auto;
+    width:350px;
+    float:left;
+    z-index: 10;
+    position: relative;
+    border-radius:5px;
+}
+
+#selected-item {
+    border:3px solid #F90;
     padding:10px 5px;
     height:350px;
     overflow:auto;
@@ -123,7 +135,7 @@ input[type="button"] {
     border-radius:5px;
 }
 #select-item {
-	border: 1px solid #069;
+	border: 1px solid #C90;
 	height: 200px;
 	overflow: auto;
 	width: 96%;
@@ -134,7 +146,17 @@ input[type="button"] {
 	padding-bottom: 10px;
 	padding-left: 5px;
 }
-
+#user-requirement {
+    border:3px solid #0C0;
+    padding:10px 5px;
+    height:350px;
+    overflow:auto;
+    width:350px;
+    float:left;
+    z-index: 10;
+    position: relative;
+    border-radius:5px;
+}
 #filter-category a {
     float:left;
     display:inline-block;
@@ -144,14 +166,7 @@ input[type="button"] {
     display: block;
     padding:2px 5px;
 }
-#user-requirement {
-    border:3px solid #4D90FE;
-    margin-left:380px;
-    position:relative;
-    padding:10px 0 15px 20px;
-    max-height: 350px;
-    border-radius:5px;
-}
+
 #user-requirement label {
     width:238px;
     display:inline-block;
@@ -184,10 +199,8 @@ input[type="button"] {
 .remove {
     background: #DD4B39;
 }
-#button-area  {
-    position:absolute;
-    bottom:-38px;
-    left:0;
+#button-area {
+	text-align:center;
 }
 #button-area input[type=button] {
     width:200px;
