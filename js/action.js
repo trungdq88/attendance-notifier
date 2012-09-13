@@ -9,7 +9,11 @@ $(document).ready(function(e) {
 				//Login successful
 				var name = d['name'];
 				var sess = d['sess'];
-				switchToUserPanel(name, sess);
+				var subjectIds = d['subjectIds'];
+				var email = d['email'];
+				var emailFreq = d['emailFreq'];
+				
+				switchToUserPanel(name, sess, subjectIds, email, emailFreq);
 			} else {
 				//Login failed
 				alert("Login failed");
@@ -19,18 +23,27 @@ $(document).ready(function(e) {
     });
 });
 
-function switchToUserPanel(name, sess) {
-	$('#loginpanel').hide(400);
-	$('#lblUsername').html(name);
+function switchToUserPanel(name, sess, subjectIds, email, emailFreq) {
+	$('#loginpanel').hide(400, function(){
+		$('#lblUsername').html(name);
+		$('#email').val(email);
+		$('#frequen').val(emailFreq);
+		loadSubjectIds(subjectIds);
+	});
 	$('#userpanel').show(400);
-	
 }
-
-//selected subject trigger, get subject name of selected item
-/*$(document).ready(function() {
-    $('input[type="checkbox"]').live('click',function(){
-        $('input[type="checkbox"]:checked').each(function() {
-            $('.append').append($(this).attr('data'));
-        });
-    })
-});*/
+function getSubjectIds() {
+	var ids = [];
+	$('#selected-item').find('li').each(function(index, e){
+		var _t = $(this);
+		ids.push(_t.attr('id'));
+	});
+	return ids.toString();
+}
+function loadSubjectIds(ids) {
+	var arrID = ids.split(",");
+	for (id in arrID) {
+		//alert(arrID[id]);
+		$("li[id=" + arrID[id] + "]").children('span').click();
+	}
+}

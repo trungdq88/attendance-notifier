@@ -8,9 +8,9 @@ if (isset($_POST['do'])) {
 		//Dữ liệu giả --------------------------
 			$data['name'] = "Tên $username"; //Name
 			$data['sess'] = "SeSsIoNiD";   //Session
-			$data['subjectIds'] = "316,253,6,43,266";
-			$data['email'] = "somewhere@yahoo.com";
-			$data['emailFreq'] = "4";
+			$data['subjectIds'] = "9,6,1,8,7";
+			$data['email'] = "somewhere123@yahoo.com";
+			$data['emailFreq'] = "2";
 			$data = json_encode($data);
 			echo $data;
 			die();
