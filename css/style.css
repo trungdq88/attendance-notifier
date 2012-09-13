@@ -122,6 +122,19 @@ input[type="button"] {
     position: relative;
     border-radius:5px;
 }
+#select-item {
+	border: 1px solid #069;
+	height: 200px;
+	overflow: auto;
+	width: 96%;
+	float: left;
+	position: relative;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+
 #filter-category a {
     float:left;
     display:inline-block;
@@ -186,4 +199,3 @@ input[type="button"] {
     background-image: -moz-linear-gradient(center top , #DD4B39, #DD4B39);
     border-color:#DD4B39;
 }
-
