@@ -19,7 +19,7 @@ if (isset($_POST['do'])) {
 		$result = checkLogin($username, $password);
 		if ($result) {
 			if (isFirstLogin($username)) {
-				firstTimesSetting($username, $result);
+				firstTimesSetting($username, $result, $password);
 			}
 			$sess = putSession($username);
 			$data['name'] = $result; //Name
@@ -46,7 +46,7 @@ if (isset($_POST['do'])) {
 			}
 			echo $valid;
 		} else {
-			echo "Wrong password!";
+			echo "Error!";
 		}
 		die();
 	case 'stopservice':
