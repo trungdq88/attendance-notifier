@@ -38,14 +38,17 @@
                             <form>
                             	<p>
                                     <label for="username">Tài khoản:</label>
-                                    <input id="txtUsername" type="text" name="username" id="username" />
+                                    <input id="txtUsername" required pattern="\w{5,}" 
+                                    type="text" name="username" id="username" />
                                 </p>
                                 <p>
                                     <label for="password">Mật khẩu:</label>
-                                    <input id="txtPassword" type="password" name="password" id="password" />
+                                    <input id="txtPassword" required pattern=".{5,}" 
+                                    type="password" name="password" id="password" />
                                 </p>
                                 <p>
                                     <input id="btnLogin" type="button" name="submit" value="Đăng nhập" />
+                                    <span id="status"></span>
                                 </p>
                             </form><!--end form-->
                         </div><!--end login-form-->

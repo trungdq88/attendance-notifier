@@ -1,26 +1,47 @@
 $(document).ready(function(e) {
 	$('#userpanel').hide(0);
     $('#btnLogin').click(function(e) {
+		waitting(false);
+		showStatus("Đang kết nối...");
         var username = $('#txtUsername').val();
 		var password = $('#txtPassword').val();
 		var data = {'do':'login',
 					'username':username,
 					'password':password};
-		$.post('control.php', data, function(d){
-			if (d) {
-				//Login successful
-				var name = d['Name'];
-				var sess = d['Session'];
-				var subjectIds = d['SubjectIds'];
-				var email = d['Email'];
-				var emailFreq = d['EmailFreq'];
-				switchToUserPanel(name, sess, subjectIds, email, emailFreq);
-			} else {
-				//Login failed
-				alert("Login failed");
+		showStatus("Kết nối đến CMS...");
+		$.ajax({
+			type: "POST",
+			url: "control.php",
+			data: {'do':'login',
+					'username':username,
+					'password':password},
+			dataType: "json",
+			timeout: 20000, // in milliseconds
+			success: function(d) {
+				showStatus("Đang đăng nhập...");
+				if (d) {
+					showStatus("Đăng nhập thành công!");
+					//Login successful
+					var name = d['Name'];
+					var sess = d['Session'];
+					var subjectIds = d['SubjectIds'];
+					var email = d['Email'];
+					var emailFreq = d['EmailFreq'];
+					switchToUserPanel(name, sess, subjectIds, email, emailFreq);
+				} else {
+					//Login failed
+					showStatus("Sai mật khẩu!");
+				}
+				waitting(true);
+			},
+			error: function(request, status, err) {
+				showStatus("Thất bại: " + status + " (" + err + ")");
+				if(status == "timeout") {
+					
+				}
+				waitting(true);
 			}
-
-		},"json");
+		});
     });
 	$('#save-button').click(function(e) {
 		var data = {'do':'savesetting',
@@ -63,5 +84,21 @@ function loadSubjectIds(ids) {
 	for (id in arrID) {
 		//alert(arrID[id]);
 		$("li[id=" + arrID[id] + "]").children('span').click();
+	}
+}
+
+function showStatus(status) {
+	$('#status').html(status);
+}
+
+function waitting(end){
+	if (end) {
+		$('#btnLogin').removeAttr("class");
+		$('#txtUsername').removeAttr("disabled");
+		$('#txtPassword').removeAttr("disabled");
+	} else {
+		$('#btnLogin').attr("class","disabled");
+		$('#txtUsername').attr("disabled","disabled");
+		$('#txtPassword').attr("disabled","disabled");
 	}
 }
