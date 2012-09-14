@@ -60,7 +60,7 @@ $(document).ready(function() {
 
     function checkAdded(count) {
         if(count == 0) {
-            $('#select-item-content p').html("Chưa có môn nào được chọn").addClass('empty');
+            $('#select-item-content p').html("Chưa có môn nào được chọn").removeClass('not-empty').addClass('empty');
         } else {
             $('#select-item-content p').html("Bạn đã chọn "+ count +" môn").removeClass('empty').addClass('not-empty');
         }
