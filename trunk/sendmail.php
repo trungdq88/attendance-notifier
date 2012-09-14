@@ -10,7 +10,7 @@
 		$mailId = $row['ID'];
 		$sendTo = $row['SendTo'];
 		$name = $row['Name'];
-		$subject = $row['Subject']; //TODO: get subject name by id
+		$subject = getSubjectName($row['Subject']); //TODO: get subject name by id
 		$absent = $row['Absent'];
 		$percent = $row['Percent'];
 		

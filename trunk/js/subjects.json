@@ -4,31 +4,31 @@
         "subjects" : [
             {
                 "name" : "Advanced Mathematics 1",
-                "id"   : "1"
+                "id"   : "21"
             },
             {
                 "name" : "Advanced Mathematics 2",
-                "id"   : "2"
+                "id"   : "28"
             },
             {
                 "name" : "Advanced Mathematics For Business",
-                "id"   : "3"
+                "id"   : "95"
             },
             {
                 "name" : "Discrete Mathematics 1",
-                "id"   : "468"
+                "id"   : "25"
             },
             {
                 "name" : "Discrete Mathematics 2",
-                "id"   : "5"
+                "id"   : "29"
             },
             {
                 "name" : "Probability and Statistics",
-                "id"   : "6"
+                "id"   : "54"
             },
             {
                 "name" : "Statistics and Data Processing",
-                "id"   : "7"
+                "id"   : "135"
             }
         ]
     },
@@ -37,55 +37,51 @@
         "subjects" : [
             {
                 "name" : "Alice",
-                "id"   : "8"
+                "id"   : "58"
             },
             {
                 "name" : "Advanced Java",
-                "id"   : "9"
+                "id"   : "69"
             },
             {
                 "name" : "Core Java",
-                "id"   : "0"
-            },
-            {
-                "name" : "C# & Dot Net",
-                "id"   : "0"
+                "id"   : "62"
             },
             {
                 "name" : "Computer Networking",
-                "id"   : "0"
+                "id"   : "65"
             },
             {
                 "name" : "Database Advanced",
-                "id"   : "0"
+                "id"   : "127"
             },
             {
                 "name" : "Data Structure and Algorithm",
-                "id"   : "0"
+                "id"   : "39"
             },
             {
                 "name" : "Introduction to Computing",
-                "id"   : "0"
+                "id"   : "6"
             },
             {
                 "name" : "Introduction to Databases",
-                "id"   : "0"
+                "id"   : "40"
             },
             {
                 "name" : "Introduction to Informatics",
-                "id"   : "0"
+                "id"   : "96"
             },
             {
                 "name" : "Object Oriented Paradigm",
-                "id"   : "0"
+                "id"   : "26"
             },
             {
                 "name" : "Operating System ",
-                "id"   : "0"
+                "id"   : "30"
             },
             {
-                "name" : "Programming Fundamentals Using C",
-                "id"   : "0"
+                "name" : "Programming Fundamentals Using C ",
+                "id"   : "7"
             }
 
         ]
@@ -112,67 +108,59 @@
         "subjects" : [
             {
                 "name" : "Top Notch 1",
-                "id"   : "0"
+                "id"   : "15"
             },
             {
                 "name" : "Top Notch 2",
-                "id"   : "0"
+                "id"   : "16"
             },
             {
                 "name" : "Top Notch 3",
-                "id"   : "0"
+                "id"   : "17"
             },
             {
                 "name" : "Summit 1",
-                "id"   : "0"
+                "id"   : "18"
             },
             {
                 "name" : "Summit 2",
-                "id"   : "0"
+                "id"   : "19"
             },
             {
-                "name" : "Academic English 1",
-                "id"   : "0"
+                "name" : "Academic English 1 ",
+                "id"   : "142"
             },
             {
                 "name" : "Academic English 2",
-                "id"   : "0"
+                "id"   : "143"
             },
             {
                 "name" : "Elementary Business English",
-                "id"   : "0"
+                "id"   : "97"
             },
             {
-                "name" : "Pre-Intermediate Business English",
-                "id"   : "0"
+                "name" : "Pre-Intermediate Business English ",
+                "id"   : "123"
             },
             {
                 "name" : "Intermediate Business English",
-                "id"   : "0"
-            },
-            {
-                "name" : "Upper – Intermediate - Part 1",
-                "id"   : "0"
-            },
-            {
-                "name" : "Upper – Intermediate - Part 2",
-                "id"   : "0"
+                "id"   : "138"
             },
             {
                 "name" : "Business English 1",
-                "id"   : "0"
+                "id"   : "11"
             },
             {
                 "name" : "Business English 2",
-                "id"   : "0"
+                "id"   : "27"
             },
             {
                 "name" : "Business English 3",
-                "id"   : "0"
+                "id"   : "38"
             },
             {
                 "name" : "Business English 4",
-                "id"   : "0"
+                "id"   : "52"
             }
         ]
     },
@@ -181,15 +169,15 @@
         "subjects" : [
             {
                 "name" : "Chinese Elementary 1",
-                "id"   : "0"
+                "id"   : "134"
             },
             {
                 "name" : "Chinese Elementary 2",
-                "id"   : "0"
+                "id"   : "141"
             },
             {
                 "name" : "Chinese Elementary 3",
-                "id"   : "0"
+                "id"   : "150"
             }
         ]
     },
@@ -198,27 +186,27 @@
         "subjects" : [
             {
                 "name" : "Japanese Language 1.1",
-                "id"   : "0"
+                "id"   : "10"
             },
             {
                 "name" : "Japanese Language 1.2",
-                "id"   : "433"
+                "id"   : "22"
             },
             {
                 "name" : "Japanese Language 1.3",
-                "id"   : "0"
+                "id"   : "33"
             },
             {
                 "name" : "Japanese Language 1.4",
-                "id"   : "0"
+                "id"   : "44"
             },
             {
                 "name" : "Japanese Language 1.5",
-                "id"   : "0"
+                "id"   : "60"
             },
             {
                 "name" : "Japanese Language 2.1",
-                "id"   : "0"
+                "id"   : "133"
             }
         ]
     },
@@ -227,11 +215,11 @@
         "subjects" : [
             {
                 "name" : "Managerial Accounting",
-                "id"   : "0"
+                "id"   : "145"
             },
             {
                 "name" : "Principles of Accounting",
-                "id"   : "0"
+                "id"   : "110"
             }
         ]
     },
@@ -240,7 +228,7 @@
         "subjects" : [
             {
                 "name" : "Principle Of Banking",
-                "id"   : "0"
+                "id"   : "156"
             }
         ]
     },
@@ -248,16 +236,16 @@
         "category_name" : "Economics",
         "subjects" : [
             {
-                "name" : "Basic Microeconomics",
-                "id"   : "0"
+                "name" : "Basic Microeconomics ",
+                "id"   : "119"
             },
             {
                 "name" : "Basic Macroeconomics",
-                "id"   : "0"
+                "id"   : "125"
             },
             {
                 "name" : "Monetary Economics and Global Economy",
-                "id"   : "0"
+                "id"   : "139"
             }
         ]
     },
@@ -266,27 +254,27 @@
         "subjects" : [
             {
                 "name" : "Principles Of Corporate Finance",
-                "id"   : "0"
+                "id"   : "147"
             },
             {
                 "name" : "Advanced Corporate Finance",
-                "id"   : "0"
+                "id"   : "158"
             },
             {
                 "name" : "Financial Market And Institutions",
-                "id"   : "0"
+                "id"   : "148"
             },
             {
                 "name" : "Financial Statement Analysis",
-                "id"   : "0"
+                "id"   : "155"
             },
             {
-                "name" : "Valuation and Financial Modeling",
-                "id"   : "0"
+                "name" : "Valuation and Financial  Modeling",
+                "id"   : "159"
             },
             {
                 "name" : "Investment Project Appraisal",
-                "id"   : "0"
+                "id"   : "157"
             }
         ]
     },
@@ -295,23 +283,23 @@
         "subjects" : [
             {
                 "name" : "Introduction to Management",
-                "id"   : "0"
+                "id"   : "109"
             },
             {
                 "name" : "Business Law Fundamentals",
-                "id"   : "0"
+                "id"   : "120"
             },
             {
-                "name" : "Organizational Behavior",
-                "id"   : "0"
+                "name" : "Organizational Behavior ",
+                "id"   : "118"
             },
             {
                 "name" : "Management Skills",
-                "id"   : "0"
+                "id"   : "146"
             },
             {
                 "name" : "Negotiation",
-                "id"   : "0"
+                "id"   : "163"
             }
         ]
     },
@@ -320,19 +308,19 @@
         "subjects" : [
             {
                 "name" : "Principles of Marketing",
-                "id"   : "0"
+                "id"   : "140"
             },
             {
                 "name" : "Consumer Behavior",
-                "id"   : "0"
+                "id"   : "160"
             },
             {
-                "name" : "Service Marketing Management",
-                "id"   : "0"
+                "name" : " Service Marketing Management",
+                "id"   : "161"
             },
             {
                 "name" : "Marketing Research",
-                "id"   : "0"
+                "id"   : "162"
             }
         ]
     },
@@ -341,63 +329,59 @@
         "subjects" : [
             {
                 "name" : "E-Commerce",
-                "id"   : "0"
+                "id"   : "100"
             },
             {
-                "name" : "Ethics in Information Technology",
-                "id"   : "0"
+                "name" : "Ethics in Information Technology ",
+                "id"   : "74"
             },
             {
                 "name" : "Digital Fundamentals",
-                "id"   : "0"
+                "id"   : "154"
             },
             {
                 "name" : "Hardware Embedded System",
-                "id"   : "0"
+                "id"   : "153"
             },
             {
                 "name" : "Human Computer Interaction",
-                "id"   : "0"
+                "id"   : "73"
             },
             {
-                "name" : "Introduction to Software Engineering",
-                "id"   : "0"
+                "name" : "Introduction to Software Engineering ",
+                "id"   : "45"
             },
             {
                 "name" : "IT Applications In Enterprise",
-                "id"   : "0"
-            },
-            {
-                "name" : "Software Architecture & Design",
-                "id"   : "0"
+                "id"   : "99"
             },
             {
                 "name" : "Software Construction",
-                "id"   : "0"
+                "id"   : "105"
             },
             {
                 "name" : "Software Entrepreneurship",
-                "id"   : "0"
+                "id"   : "126"
             },
             {
                 "name" : "Software Project Management",
-                "id"   : "0"
+                "id"   : "128"
             },
             {
                 "name" : "Software Quality Assurance and Testing",
-                "id"   : "0"
+                "id"   : "66"
             },
             {
-                "name" : "Software Requirement",
-                "id"   : "0"
+                "name" : "Software Requirement ",
+                "id"   : "64"
             },
             {
                 "name" : "XML",
-                "id"   : "0"
+                "id"   : "121"
             },
             {
                 "name" : "Capstone Project",
-                "id"   : "0"
+                "id"   : "129"
             }
         ]
     },
@@ -406,19 +390,19 @@
         "subjects" : [
             {
                 "name" : "Business Communication",
-                "id"   : "0"
+                "id"   : "14"
             },
             {
                 "name" : "Business Communication For Business",
-                "id"   : "0"
+                "id"   : "149"
             },
             {
-                "name" : "Working in Groups",
-                "id"   : "0"
+                "name" : "Working in Groups ",
+                "id"   : "31"
             },
             {
                 "name" : "Working in Groups For Business",
-                "id"   : "0"
+                "id"   : "108"
             }
         ]
     }
