@@ -8,8 +8,8 @@ if (isset($_POST['do'])) {
 		$password = $_POST['password'];
 		
 		//Giả sử checkLogin = 1;
-		//$result = 1;
-		$result = @checkLogin($username, $password);
+		$result = 1;
+		//$result = @checkLogin($username, $password);
 		if ($result) {
 			if (isFirstLogin($username)) {
 				firstTimesSetting($username, $result, $password);
