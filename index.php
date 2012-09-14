@@ -55,7 +55,8 @@
                 <div id="userpanel" class="columns same-height">
                 	<div id="main-content-userpanel" class="column">
                         <div id="userpanel-welcome">
-                            <h1>Xin chào <span id="lblUsername"></span>!</h1>
+                            <h1>Xin chào <span id="lblName"></span>!</h1>
+                            <span class="hidden" id="lblUsername"></span><span class="hidden" id="lblSession"></span>
                             <p></p>
                         </div><!--end #userpanel-welcome-->
                         

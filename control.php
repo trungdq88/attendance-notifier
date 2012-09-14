@@ -6,6 +6,7 @@ if (isset($_POST['do'])) {
 	switch ($do) {
 	case 'login':
 		//Dữ liệu giả --------------------------
+		/*
 			$data['name'] = "Tên $username"; //Name
 			$data['sess'] = "SeSsIoNiD";   //Session
 			$data['subjectIds'] = "9,6,1,8,7";
@@ -14,19 +15,18 @@ if (isset($_POST['do'])) {
 			$data = json_encode($data);
 			echo $data;
 			die();
+		*/
 		//Dữ liệu giả --------------------------
 		$password = $_POST['password'];
-		$result = checkLogin($username, $password);
+		//$result = checkLogin($username, $password);
+		//Giả sử checkLogin = 1;
+		$result = 1;
 		if ($result) {
 			if (isFirstLogin($username)) {
 				firstTimesSetting($username, $result, $password);
 			}
 			$sess = putSession($username);
-			$data['name'] = $result; //Name
-			$data['sess'] = $sess;   //Session
-			$data['subjectIds'] = 0;
-			$data['email'] = 0;
-			$data['emailFreq'] = 0;
+			$data = loadSettings($username);
 			$data = json_encode($data);
 		} else {
 			$data = 0;
@@ -36,17 +36,17 @@ if (isset($_POST['do'])) {
 		die();
 	case 'savesetting':
 		$session = $_POST['session'];
-		if (checkSession($username, $session)) {
+		if (@checkSession($username, $session)) {
 			$subjectIds = $_POST['subjectids'];
 			$email = $_POST['email'];
 			$emailFreq = $_POST['emailfreq'];
-			$valid = checkValid($subjectIds, $email, $emailFreq);
+			$valid = (string)checkValid($subjectIds, $email, $emailFreq);
 			if ($valid == "YES") {
 				saveSettings($username, $session, $subjectIds, $email, $emailFreq);
 			}
 			echo $valid;
 		} else {
-			echo "Error!";
+			echo "Không đúng Session!\nVui lòng đăng nhập lại.";
 		}
 		die();
 	case 'stopservice':
