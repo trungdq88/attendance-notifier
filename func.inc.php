@@ -64,7 +64,19 @@ function checkAttendance($username, $password, $arrID) {
 	curl_close($ch);
 	//echo $index;
 	$arrSubject = array();
-	foreach ($arrID as $id) {
+	foreach ($arrID as $_id) {
+		// /(?<=href=\"http:\/\/cms-hcm\.fpt\.edu\.vn\/elearning\/mod\/attforblock\/view.php\?id=)\d+(?=\"\>\<img)/i
+		$ch = curl_init(); 
+		curl_setopt($ch, CURLOPT_URL, 'http://cms-hcm.fpt.edu.vn/elearning/course/view.php?id='.$_id); 
+		curl_setopt($ch, CURLOPT_COOKIEFILE, $ckfile);
+		curl_setopt($ch, CURLOPT_COOKIEJAR, $ckfile);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+		$_pm = curl_exec($ch);
+		curl_close($ch);
+		preg_match("/(?<=href=\"http:\/\/cms-hcm\.fpt\.edu\.vn\/elearning\/mod\/attforblock\/view.php\?id=)\d+(?=\"\>\<img)/i", $_pm, $html_att_id);
+		
+		$id = $html_att_id[0];
+		
 		$ch = curl_init(); 
 		curl_setopt($ch, CURLOPT_URL, 'http://cms-hcm.fpt.edu.vn/elearning/mod/attforblock/view.php?id='.$id); 
 		curl_setopt($ch, CURLOPT_COOKIEFILE, $ckfile);
@@ -83,7 +95,7 @@ function checkAttendance($username, $password, $arrID) {
 			if (preg_match("/(?<=\>Number of Sessions:).+<\/strong\>/i", $pm, $html_total)) {
 				preg_match("/(?<=\<strong\>)\d+(?=\<\/strong\>)/i", $html_total[0], $total);
 			}
-			array_push($arrSubject ,array('ID' => $id, 'absent' => $absent[0], 'total' => $total[0]));
+			array_push($arrSubject ,array('ID' => $_id, 'absent' => $absent[0], 'total' => $total[0]));
 		} else {
 			//return false;
 		}
@@ -208,8 +220,15 @@ function setNewAbsent($username, $subjectId, $absent) {
 	return $result;
 }
 function loadSettings($username) {
-	$sql = "SELECT * FROM `tblusers` WHERE `Username` = '".$username."'";
+	$sql = "SELECT * FROM `tblusers` WHERE `Username` = '".mr($username)."'";
 	$result = mysql_query($sql);
 	return mysql_fetch_assoc($result);
 }
+
+function getSubjectName($id) {
+	$sql = "SELECT `Name` FROM `tblsubjects` WHERE `ID` = ".$id;
+	$result = mysql_query($sql);
+	return @mysql_result($result, 0);
+}
+
 ?>
