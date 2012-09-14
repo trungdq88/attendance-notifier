@@ -1,5 +1,5 @@
 $(document).ready(function(e) {
-	//$('#userpanel').hide(0);
+	$('#userpanel').hide(0);
     $('#btnLogin').click(function(e) {
 		waitting(false);
 		showStatus("Đang kết nối...");
