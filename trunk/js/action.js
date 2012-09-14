@@ -3,16 +3,17 @@ $(document).ready(function(e) {
     $('#btnLogin').click(function(e) {
         var username = $('#txtUsername').val();
 		var password = $('#txtPassword').val();
-		var data = {'do':'login', 'username':username, 'password':password};
+		var data = {'do':'login',
+					'username':username,
+					'password':password};
 		$.post('control.php', data, function(d){
 			if (d) {
 				//Login successful
-				var name = d['name'];
-				var sess = d['sess'];
-				var subjectIds = d['subjectIds'];
-				var email = d['email'];
-				var emailFreq = d['emailFreq'];
-				
+				var name = d['Name'];
+				var sess = d['Session'];
+				var subjectIds = d['SubjectIds'];
+				var email = d['Email'];
+				var emailFreq = d['EmailFreq'];
 				switchToUserPanel(name, sess, subjectIds, email, emailFreq);
 			} else {
 				//Login failed
@@ -21,13 +22,30 @@ $(document).ready(function(e) {
 
 		},"json");
     });
+	$('#save-button').click(function(e) {
+		var data = {'do':'savesetting',
+					'username':$('#lblUsername').html(),
+					'session': $('#lblSession').html(),
+					'subjectids':getSubjectIds(),
+					'email':$('#email').val(),
+					'emailfreq':$('#frequen').val()};
+		$.post('control.php', data, function(d) {
+			if (d == "YES") {
+				alert("Các thay đổi đã được lưu thành công.");
+			} else {
+				alert("Có lỗi xảy ra:\n\n" + d);
+			}
+		});
+	});
 });
 
 function switchToUserPanel(name, sess, subjectIds, email, emailFreq) {
 	$('#loginpanel').hide(400, function(){
-		$('#lblUsername').html(name);
+		$('#lblUsername').html($('#txtUsername').val());
+		$('#lblName').html(name);
 		$('#email').val(email);
 		$('#frequen').val(emailFreq);
+		$('#lblSession').html(sess);
 		loadSubjectIds(subjectIds);
 	});
 	$('#userpanel').show(400);

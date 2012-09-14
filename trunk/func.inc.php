@@ -165,11 +165,13 @@ function checkSession($username, $session) {
 }
 
 function checkValid($subjectIds, $email, $emailFreq) {
-	$sub = explode(",",$subjectIds);
 	$f = 0;
-	foreach ($sub as $t) {
-		if (!is_numeric($t)) {
-			$f++;
+	if (!empty($subjectIds)) {
+		$sub = explode(",", $subjectIds);
+		foreach ($sub as $t) {
+			if (!is_numeric($t)) {
+				$f++;
+			}
 		}
 	}
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -178,7 +180,11 @@ function checkValid($subjectIds, $email, $emailFreq) {
 	if (!is_numeric($emailFreq) || ((int)$emailFreq <= 0) || ((int)$emailFreq >= 5)) {
 		$f++;
 	}
-	return ($f == 0);
+	if ($f == 0) {
+		return "YES";
+	} else {
+		return "Dữ liệu không đúng định dạng! ";
+	}
 }
 
 function sendMail($to, $subject, $message) {
@@ -201,5 +207,9 @@ function setNewAbsent($username, $subjectId, $absent) {
 	$result = mysql_query($sql);
 	return $result;
 }
-
+function loadSettings($username) {
+	$sql = "SELECT * FROM `tblusers` WHERE `Username` = '".$username."'";
+	$result = mysql_query($sql);
+	return mysql_fetch_assoc($result);
+}
 ?>

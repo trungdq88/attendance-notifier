@@ -212,3 +212,7 @@ input[type="button"] {
     background-image: -moz-linear-gradient(center top , #DD4B39, #DD4B39);
     border-color:#DD4B39;
 }
+.hidden {
+	visibility:hidden;
+	position:absolute;
+}
