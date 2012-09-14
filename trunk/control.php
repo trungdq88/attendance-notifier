@@ -5,22 +5,11 @@ if (isset($_POST['do'])) {
 	$username = $_POST['username'];
 	switch ($do) {
 	case 'login':
-		//Dữ liệu giả --------------------------
-		/*
-			$data['name'] = "Tên $username"; //Name
-			$data['sess'] = "SeSsIoNiD";   //Session
-			$data['subjectIds'] = "9,6,1,8,7";
-			$data['email'] = "somewhere123@yahoo.com";
-			$data['emailFreq'] = "2";
-			$data = json_encode($data);
-			echo $data;
-			die();
-		*/
-		//Dữ liệu giả --------------------------
 		$password = $_POST['password'];
-		//$result = checkLogin($username, $password);
+		
 		//Giả sử checkLogin = 1;
-		$result = 1;
+		//$result = 1;
+		$result = @checkLogin($username, $password);
 		if ($result) {
 			if (isFirstLogin($username)) {
 				firstTimesSetting($username, $result, $password);

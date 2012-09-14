@@ -252,11 +252,11 @@
                 "id"   : "0"
             },
             {
-                "name" : "",
+                "name" : "Basic Macroeconomics",
                 "id"   : "0"
             },
             {
-                "name" : "",
+                "name" : "Monetary Economics and Global Economy",
                 "id"   : "0"
             }
         ]
@@ -265,7 +265,27 @@
         "category_name" : "Finance",
         "subjects" : [
             {
-                "name" : "Alice",
+                "name" : "Principles Of Corporate Finance",
+                "id"   : "0"
+            },
+            {
+                "name" : "Advanced Corporate Finance",
+                "id"   : "0"
+            },
+            {
+                "name" : "Financial Market And Institutions",
+                "id"   : "0"
+            },
+            {
+                "name" : "Financial Statement Analysis",
+                "id"   : "0"
+            },
+            {
+                "name" : "Valuation and Financial Modeling",
+                "id"   : "0"
+            },
+            {
+                "name" : "Investment Project Appraisal",
                 "id"   : "0"
             }
         ]
@@ -274,7 +294,23 @@
         "category_name" : "General Management",
         "subjects" : [
             {
-                "name" : "Alice",
+                "name" : "Introduction to Management",
+                "id"   : "0"
+            },
+            {
+                "name" : "Business Law Fundamentals",
+                "id"   : "0"
+            },
+            {
+                "name" : "Organizational Behavior",
+                "id"   : "0"
+            },
+            {
+                "name" : "Management Skills",
+                "id"   : "0"
+            },
+            {
+                "name" : "Negotiation",
                 "id"   : "0"
             }
         ]
@@ -283,7 +319,19 @@
         "category_name" : "Marketing",
         "subjects" : [
             {
-                "name" : "Alice",
+                "name" : "Principles of Marketing",
+                "id"   : "0"
+            },
+            {
+                "name" : "Consumer Behavior",
+                "id"   : "0"
+            },
+            {
+                "name" : "Service Marketing Management",
+                "id"   : "0"
+            },
+            {
+                "name" : "Marketing Research",
                 "id"   : "0"
             }
         ]
@@ -292,7 +340,63 @@
         "category_name" : "Software Engineering",
         "subjects" : [
             {
-                "name" : "Alice",
+                "name" : "E-Commerce",
+                "id"   : "0"
+            },
+            {
+                "name" : "Ethics in Information Technology",
+                "id"   : "0"
+            },
+            {
+                "name" : "Digital Fundamentals",
+                "id"   : "0"
+            },
+            {
+                "name" : "Hardware Embedded System",
+                "id"   : "0"
+            },
+            {
+                "name" : "Human Computer Interaction",
+                "id"   : "0"
+            },
+            {
+                "name" : "Introduction to Software Engineering",
+                "id"   : "0"
+            },
+            {
+                "name" : "IT Applications In Enterprise",
+                "id"   : "0"
+            },
+            {
+                "name" : "Software Architecture & Design",
+                "id"   : "0"
+            },
+            {
+                "name" : "Software Construction",
+                "id"   : "0"
+            },
+            {
+                "name" : "Software Entrepreneurship",
+                "id"   : "0"
+            },
+            {
+                "name" : "Software Project Management",
+                "id"   : "0"
+            },
+            {
+                "name" : "Software Quality Assurance and Testing",
+                "id"   : "0"
+            },
+            {
+                "name" : "Software Requirement",
+                "id"   : "0"
+            },
+            {
+                "name" : "XML",
+                "id"   : "0"
+            },
+            {
+                "name" : "Capstone Project",
                 "id"   : "0"
             }
         ]
@@ -301,7 +405,19 @@
         "category_name" : "Soft Skill",
         "subjects" : [
             {
-                "name" : "Alice",
+                "name" : "Business Communication",
+                "id"   : "0"
+            },
+            {
+                "name" : "Business Communication For Business",
+                "id"   : "0"
+            },
+            {
+                "name" : "Working in Groups",
+                "id"   : "0"
+            },
+            {
+                "name" : "Working in Groups For Business",
                 "id"   : "0"
             }
         ]
