@@ -78,7 +78,14 @@
                                   </ul>
                               </div><!--end select-item-content-->
                          </div><!--end #selected-item-->
-                        <div id="user-requirement">
+
+
+                        <div id="button-area">
+                            <input id="save-button" type="button" value="Lưu Thông Tin">
+                            <input id="stop-service" type="button" value="Ngưng Dịch Vụ">
+                        </div><!--end control-area-->
+
+                        <div id="user-requirement" class="elastic">
                         	<h3>Cài đặt</h3>
                             <form>
                                 <p>
@@ -86,7 +93,7 @@
                                     <input id="email" type="text" name="email" />
                                 </p>
                                 <p>
-                                    <label for="frequen">Tần Xuất Gửi Email:</label>
+                                    <label for="frequen">Tần Suất Gửi Email:</label>
                                     <select name="frequen" id="frequen">
                                         <option value="1">Mỗi ngày</option>
                                         <option value="2">2 ngày</option>
@@ -97,10 +104,6 @@
                             </form><!--end form-->
                         </div><!--end user-requirement-->
                         <!--end select-box-->
-                        <div id="button-area">
-                            <input id="save-button" type="button" value="Lưu Thông Tin">
-                            <input id="stop-service" type="button" value="Ngưng Dịch Vụ">
-                        </div><!--end control-area-->
                     </div><!--end #main-content-->
                     
                 </div><!--end userpanel-->
