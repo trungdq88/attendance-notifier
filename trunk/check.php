@@ -26,12 +26,14 @@
 					);
 		*/
 		
+		//print_r($attResults);
+		
 		foreach ($attResults as $re) {
-			$id = $re['id'];				// ID môn học.
+			$id = $re['ID'];				// ID môn học.
 			$absent = (int)$re['absent'];	// Số slot absent hiện tại.
 			$total = $re['total'];			// Tổng số slot.
 			$oldAbsent = getOldAbsent($username, $id); //Số slot absent lần trước.	
-			if ($absent != $oldAbsent) {
+			if ((int)$absent != (int)$oldAbsent) {
 				// Giá trị absent bị thay đổi.
 				$percent = (100 * (int)$absent / (int)$total);
 				if (addToDraft($email, $name, $id, $absent, $percent)) {
