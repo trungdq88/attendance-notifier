@@ -39,16 +39,21 @@
                             	<p>
                                     <label for="username">Tài khoản:</label>
                                     <input id="txtUsername" required pattern="\w{5,}" 
-                                    type="text" name="username" id="username" />
+                                    type="text" name="username" onkeydown="if(event.keyCode == 13) {$('#btnLogin').click();}" id="username" />
                                 </p>
                                 <p>
                                     <label for="password">Mật khẩu:</label>
                                     <input id="txtPassword" required pattern=".{5,}" 
-                                    type="password" name="password" id="password" />
+                                    type="password" name="password" onkeydown="if(event.keyCode == 13) {$('#btnLogin').click();}"  id="password" />
                                 </p>
                                 <p>
-                                    <input id="btnLogin" type="button" name="submit" value="Đăng nhập" />
-                                    <span id="status"></span>
+                                	<div id="status-and-login">
+                                        <div id="btnLogin-div">
+                                        	<input id="btnLogin" type="button" name="submit" value="Đăng nhập" />
+                                        </div>
+                                        <img id="status-image" src='images/loading.gif' />
+	                                    <span id="status"></span> 
+                                    </div>
                                 </p>
                             </form><!--end form-->
                         </div><!--end login-form-->
@@ -82,7 +87,7 @@
 
                         <div id="button-area">
                             <input id="save-button" type="button" value="Lưu Thông Tin">
-                            <input id="stop-service" type="button" value="Ngưng Dịch Vụ">
+                            <input id="stop-service" type="button" value="Thoát">
                         </div><!--end control-area-->
 
                         <div id="user-requirement" class="elastic">
@@ -98,7 +103,7 @@
                                         <option value="1">Mỗi ngày</option>
                                         <option value="2">2 ngày</option>
                                         <option value="3">3 ngày</option>
-                                        <option value="4">Mỗi tuần</option>
+                                        <option value="4">Không nhận mail</option>
                                     </select>
                                 </p>
                             </form><!--end form-->

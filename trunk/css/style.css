@@ -117,11 +117,41 @@ input[type="button"] {
     width:79px;
     height:28px;
 }
-input[type="button"].disabled {
+
+input[type="text"]:disabled {
 	background-color:#999;
-	background-image: -moz-linear-gradient(center top ,  #999, #999);
-	border: 1px solid #666;
 	color:#E9E9E9;
+}
+input[type="password"]:disabled {
+	background-color:#999;
+	color:#E9E9E9;
+}
+#status-and-login{
+	position:relative;
+	left:0px;
+	top:0px;
+    min-width: 46px;
+    text-align: center;
+    width:79px;
+    height:28px;
+}
+#btnLogin-div{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+#status-image{
+	padding-top:5px;
+}
+
+#status {
+	padding-top:5px;
+	position:absolute;
+	text-align:left;
+	color:#999;
+	left:90px;
+	width:265%;
+	height:23px;
 }
 /****select box****/
 #select-box {
@@ -227,10 +257,8 @@ float:right;
 	visibility:hidden;
 	position:absolute;
 }
-#status {
-	padding-left:10px;
-	color:#999;
-}
+
+
 input:required:invalid, input:focus:invalid {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAT1JREFUeNpi/P//PwMpgImBRMACY/x7/uDX39sXt/67cMoDyOVgMjBjYFbV/8kkqcCBrIER5KS/967s+rmkXxzI5wJiRSBm/v8P7NTfHHFFl5mVdIzhGv4+u///x+xmuAlcdXPB9KeqeLgYd3bDU2ZpRRmwH4DOeAI07QXIRKipYPD35184/nn17CO4p/+cOfjl76+/X4GYAYThGn7/g+Mfh/ZZwjUA/aABpJVhpv6+dQUjZP78Z0YEK7OezS2gwltg64GmfTu6i+HL+mUMP34wgvGvL78ZOEysf8M1sGgZvQIqfA1SDAL8iUUMPIFRQLf+AmMQ4DQ0vYYSrL9vXDz2sq9LFsiX4dLRA0t8OX0SHKzi5bXf2HUMBVA0gN356N7p7xdOS3w5fAgcfNxWtn+BJi9gVVBOQfYPQIABABvRq3BwGT3OAAAAAElFTkSuQmCC');
     background-position: right center;
