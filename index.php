@@ -18,7 +18,10 @@
     <div id="wrapper" class="container">
         <div class="columns unit">
             <div id="header" class="column elastic">
-                <h1><a href="#">Logo</a></h1>
+            	<div id="header-image">
+                <img src='images/email.png' width="80" height="80"/>
+                <h1 id="header-text">Attendance Notifier</h1>
+                </div>
             </div><!--end .container-->
         </div>
         <div id="content-wrap" >
@@ -27,14 +30,27 @@
 
                     <div id="main-content-loginpanel" class="column elastic">
                         <div id="welcome">
-                            <h1>Chào mừng các bạn đến với Attendance Notifier</h1>
-                            <p></p>
+                            <h1 style="font-size:large">Chào mừng các bạn đến với Attendance Notifier</h1>
+                            <br/>
+                            <hr/>
+                            <h3>Giới thiệu</h3>
+                            <p>Attendance Notifier là dịch vụ cho phép bạn theo dõi số buổi Absent của mình mỗi ngày.</p>
+							<p>Dịch vụ sẽ gửi email về hộp thư của bạn mỗi khi bạn bị absent để bạn có thể theo dõi số buổi vắng học của mình, tránh bị cấm thi một cách lãng xẹt.</p>
+                            <p>Dịch vụ cho phép bạn theo dõi số slot absent của tất cả các môn học. Gửi mail thông báo 2 lần một ngày (chỉ gửi nếu bạn absent).</p>
+                            <hr/>
+                            <h3>Chính sách bảo mật</h3>
+                            <p>Đăng nhập vào dịch vụ bằng tài khoản và mật khẩu đăng nhập CMS.</p>
+                            <p>Chúng tôi đảm bảo mật khẩu của bạn được giữ kín tuyệt đối, chỉ sử dụng vào việc duy nhất là để kiểm tra số buổi absent (công việc này do server tự động thực hiện mỗi ngày).
+                            <hr/>
+                            <h3>Về tác giả</h3>
+                            <p>Dự án attendance-notifier mã nguồn mở trên Google Code: <a href="http://code.google.com/p/attendance-notifier/">Attendance Notifier</a></p>
+                            <p>Tác giả: <a href="mailto:trungdqse60994@fpt.edu.vn">TrungDQSE60994@fpt.edu.vn</a>, <a href="mailto:nhannvse60650@fpt.edu.vn">NhanNVSE60650@fpt.edu.vn</a></p>
                         </div><!--end #welcome-->
                         
                     </div><!--end #main-content-->
                     <div id="sidebar" class="column fixed equal-height" style="width:335px;">
                         <div id="login-form">
-                            <h1>Đăng Nhập</h1>
+                            <h1>Đăng Nhập <span style="font-size:small;color:#999">(Bằng tài khoản CMS)</span></h1>
                             <form>
                             	<p>
                                     <label for="username">Tài khoản:</label>
