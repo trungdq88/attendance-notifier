@@ -14,30 +14,32 @@
 		$session 		 = $row['Session'];
 		$password 		= decrypt($row['Password']);
 		
-		$attResults = checkAttendance($username, $password, $subjectIds);
-		
-		/*
-		$attResults = Array (
-						Array (
-						'id' => '1',
-						'absent' => '2',
-						'total' => '7'
-						)
-					);
-		*/
-		
-		//print_r($attResults);
-		
-		foreach ($attResults as $re) {
-			$id = $re['ID'];				// ID môn học.
-			$absent = (int)$re['absent'];	// Số slot absent hiện tại.
-			$total = $re['total'];			// Tổng số slot.
-			$oldAbsent = getOldAbsent($username, $id); //Số slot absent lần trước.	
-			if ((int)$absent != (int)$oldAbsent) {
-				// Giá trị absent bị thay đổi.
-				$percent = (100 * (int)$absent / (int)$total);
-				if (addToDraft($email, $name, $id, $absent, $percent)) {
-					setNewAbsent($username, $id, $absent);
+		if ((int)$emailFreq < 4) {
+			$attResults = checkAttendance($username, $password, $subjectIds);
+			
+			/*
+			$attResults = Array (
+							Array (
+							'id' => '1',
+							'absent' => '2',
+							'total' => '7'
+							)
+						);
+			*/
+			
+			//print_r($attResults);
+			
+			foreach ($attResults as $re) {
+				$id = $re['ID'];				// ID môn học.
+				$absent = (int)$re['absent'];	// Số slot absent hiện tại.
+				$total = $re['total'];			// Tổng số slot.
+				$oldAbsent = getOldAbsent($username, $id); //Số slot absent lần trước.	
+				if ((int)$absent != (int)$oldAbsent) {
+					// Giá trị absent bị thay đổi.
+					$percent = (100 * (int)$absent / (int)$total);
+					if (addToDraft($email, $name, $id, $absent, $percent)) {
+						setNewAbsent($username, $id, $absent);
+					}
 				}
 			}
 		}
