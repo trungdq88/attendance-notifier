@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/getSubject.js"></script>
     <script type="text/javascript" src="js/action.js"></script>
     <title>Attendance Notifier</title>
+    <link REL="SHORTCUT ICON" HREF="images/favicon.ico">
 </head>
 <body>
     <div id="wrapper" class="container">
