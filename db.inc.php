@@ -1,9 +1,6 @@
 <?php
 /*
 $hostname='localhost';
-$db_username='a3722hos_att';
-$db_password='attendancedb';
-$db_name='a3722hos_att';
 */
 
 $hostname='localhost';
