@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+﻿<?php
+	include_once('func.inc.php');
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -74,6 +77,13 @@
                                 </p>
                             </form><!--end form-->
                         </div><!--end login-form-->
+                        
+                        <div id="stats">
+							<h3>Thống kê</h3>
+                            <p>Số người dùng: <?=@getUserNumber()?></p>
+                            <p>Số môn học: <?=@getSubjectNumber()?></p>
+                            <!--<p>Số mail đã gửi: <?=@getMailNumber()?></p>-->
+                        </div>
                     </div><!--end #sidebar-->
                 </div>
                 
