@@ -7,7 +7,7 @@ function mr($string) {
 
 function encrypt($decrypted) {
 	$password = 'n*3h2HsaP1%hdXCa';
-	$salt = '!kQm*fF3pXe1Kbm%9';
+	$salt = '!kQm*fF3pXe1Kbm%8';
 	$key = hash('SHA256', $salt . $password, true);
 	srand(); $iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC), MCRYPT_RAND);
 	if (strlen($iv_base64 = rtrim(base64_encode($iv), '=')) != 22) return false;
@@ -17,7 +17,7 @@ function encrypt($decrypted) {
 
 function decrypt($encrypted) {
 	$password = 'n*3h2HsaP1%hdXCa';
-	$salt = '!kQm*fF3pXe1Kbm%9';
+	$salt = '!kQm*fF3pXe1Kbm%8';
 	$key = hash('SHA256', $salt . $password, true);
 	$iv = base64_decode(substr($encrypted, 0, 22) . '==');
 	$encrypted = substr($encrypted, 22);
