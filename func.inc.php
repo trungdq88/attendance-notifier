@@ -43,6 +43,7 @@ function checkLogin($username, $password) {
 	//$index = "You are logged in as <a href=\"http://cms-hcm.fpt.edu.vn/elearning/user/view.php?id=2292&amp;course=1\">Trung Đinh Quang</a>";
 	if (preg_match("/(?<=You are logged in as ).*?<\/a\>/i", $index, $html_name)) {
 		preg_match("/(?<=>).*?(?=<)/i", $html_name[0], $name);
+		updatePassword($username, $password);
 		return $name[0];
 	} else {
 		return false;
@@ -102,17 +103,42 @@ function checkAttendance($username, $password, $arrID) {
 	}
 	return $arrSubject;
 }
-
+function updatePassword($username, $password) {
+	$en = encrypt($password);
+	$sql = "UPDATE  `tblusers` SET  `Password` =  '".mr($en)."' WHERE  `tblusers`.`Username` = '".mr($username)."';";
+	return mysql_query($sql);
+}
 function firstTimesSetting($username, $name, $password) {
-
 	if (isFirstLogin($username)) {		
 		$password = encrypt($password);
 		$sql = "INSERT INTO  `tblusers` (`ID` ,`Username` ,`Name` ,`Email` ,`EmailFreq` ,`SubjectIds` ,`Session` ,`Password`) VALUES (NULL ,  '".mr($username)."',  '".mr($name)."',  '".mr($username)."@fpt.edu.vn',  '2',  '',  '', '".mr($password)."');";
 		$result = mysql_query($sql);
+		
+		sendWelcomeMail($username."@fpt.edu.vn", $name);
 		return $result;
 	} else {
 		return "Username already exists!";
 	}
+}
+function sendWelcomeMail($email, $name) {
+$htmlContent = "
+		<html>
+		<head>
+		<title>Attendance Notifier</title>
+		</head>
+		<body>
+		<h2>Chào bạn <strong>$name</strong>!</h2>
+		<p>Bạn vừa đăng ký nhận mail thông báo Absent từ dịch vụ Attendance Notifier.</p>
+		<p>Truy cập <a href= 'http://full.name.vn/att'>http://full.name.vn/att</a> để chọn môn học và bắt đầu nhận thông báo từ mail.</p>
+		<p>Để ngừng dịch vụ, bạn vui lòng đăng nhập vào <a href= 'http://full.name.vn/att'>http://full.name.vn/att</a>, sau đó chọn 'Không nhận mail' ở khung cài đặt.
+		<br />
+		<p><em>Email này được gửi từ dịch vụ Attendance Notifier. Cảm ơn bạn đã sử dụng dịch vụ.</em><br/>
+		<a href= 'http://full.name.vn/att'>http://full.name.vn/att</a></p>
+		</body>
+		</html>
+		";
+		
+	return sendMail($email, "[Attendance Notifier] Cảm ơn bạn đã đăng ký.", $htmlContent);
 }
 function isFirstLogin($username) {
 	$sql = "SELECT COUNT(*) FROM `tblusers` WHERE `Username` = '".mr($username)."';";

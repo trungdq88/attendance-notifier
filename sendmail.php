@@ -21,11 +21,11 @@
 		</head>
 		<body>
 		<h2>Chào bạn <strong>$name</strong>!</h2>
-		<p>Bạn vừa vắng mặt một slot môn <strong style='color:red'>$subject</strong> vào ngày hôm nay.</p>
+		<p>Bạn vừa vắng mặt một slot môn <strong style='color:red'>$subject</strong>.</p>
 		<h3>Số slot Absent: <span style='color:red'>$absent</span></h3>
 		<h3>Số phần trăm nghỉ: <span style='color:red'>$percent%</span> <em style='color:red'>(trên 20% sẽ bị cấm thi)</em></h3>
 		<br />
-		<p><em>Email này được gửi từ dịch vụ Attendance Notifier, cảm ơn bạn đã sử dụng dịch vụ.</em><br/>
+		<p><em>Email này được gửi từ dịch vụ Attendance Notifier. Cảm ơn bạn đã sử dụng dịch vụ.</em><br/>
 		<a href= 'http://full.name.vn/att'>http://full.name.vn/att</a></p>
 		</body>
 		</html>
