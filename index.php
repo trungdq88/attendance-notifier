@@ -82,7 +82,7 @@
 							<h3>Thống kê</h3>
                             <p>Số người dùng: <?=@getUserNumber()?></p>
                             <p>Số môn học: <?=@getSubjectNumber()?></p>
-                            <!--<p>Số mail đã gửi: <?=@getMailNumber()?></p>-->
+                            <p>Số mail đã gửi: <?=@getMailNumber()?></p>
                         </div>
                     </div><!--end #sidebar-->
                 </div>
