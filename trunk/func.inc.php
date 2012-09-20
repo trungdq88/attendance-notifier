@@ -267,7 +267,7 @@ function getSubjectNumber(){
 	return $u;
 }
 function getMailNumber(){
-	$sql = "SELECT COUNT(*) FROM `tblemail` WHERE `Sended` = 1;";
+	$sql = "SELECT COUNT(*) FROM `tblemail` WHERE `Sent` = 1;";
 	$u = (int)mysql_result(mysql_query($sql),0) + 13;
 	return $u;
 }
