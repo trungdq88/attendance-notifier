@@ -3,7 +3,7 @@
 
 	include_once('func.inc.php');
 	
-	$sql = "SELECT * FROM  `tblemail` WHERE `Sended` = 0";
+	$sql = "SELECT * FROM  `tblemail` WHERE `Sent` = 0";
 	$result = mysql_query($sql);
 	
 	while ($row = mysql_fetch_assoc($result)) {
@@ -32,7 +32,7 @@
 		";
 		
 		if (sendMail($sendTo, "Bạn vừa Absent môn $subject ($absent).", $htmlContent)) {
-			$sql = "UPDATE  `tblemail` SET  `Sended` =  '1' WHERE  `tblemail`.`ID` = ".$mailId.";";
+			$sql = "UPDATE  `tblemail` SET  `Sent` =  '1' WHERE  `tblemail`.`ID` = ".$mailId.";";
 			mysql_query($sql);
 		}
 	}
