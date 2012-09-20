@@ -21,8 +21,8 @@
 		</head>
 		<body>
 		<h2>Chào bạn <strong>$name</strong>!</h2>
-		<p>Bạn vừa vắng mặt một slot môn <strong style='color:red'>$subject</strong>.</p>
-		<h3>Số slot Absent: <span style='color:red'>$absent</span></h3>
+		<p>Số buổi Absent môn <strong style='color:red'>$subject</strong> của bạn vừa bị thay đổi.</p>
+		<h3>Số slot Absent hiện tại: <span style='color:red'>$absent</span></h3>
 		<h3>Số phần trăm nghỉ: <span style='color:red'>$percent%</span> <em style='color:red'>(trên 20% sẽ bị cấm thi)</em></h3>
 		<br />
 		<p><em>Email này được gửi từ dịch vụ Attendance Notifier. Cảm ơn bạn đã sử dụng dịch vụ.</em><br/>
@@ -31,7 +31,7 @@
 		</html>
 		";
 		
-		if (sendMail($sendTo, "Bạn vừa Absent môn $subject ($absent).", $htmlContent)) {
+		if (sendMail($sendTo, "Số buổi Absent môn $subject ($absent) của bạn vừa bị thay đổi.", $htmlContent)) {
 			$sql = "UPDATE  `tblemail` SET  `Sent` =  '1' WHERE  `tblemail`.`ID` = ".$mailId.";";
 			mysql_query($sql);
 		}
