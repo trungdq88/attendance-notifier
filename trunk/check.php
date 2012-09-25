@@ -36,7 +36,11 @@
 				$oldAbsent = getOldAbsent($username, $id); //Số slot absent lần trước.	
 				if ((int)$absent != (int)$oldAbsent) {
 					// Giá trị absent bị thay đổi.
-					$percent = (100 * (int)$absent / (int)$total);
+					if ((int)$total > 0) {
+						$percent = (100 * (int)$absent / (int)$total);
+					} else {
+						$percent = 0;
+					}
 					if (addToDraft($email, $name, $id, $absent, $percent)) {
 						setNewAbsent($username, $id, $absent);
 					}
