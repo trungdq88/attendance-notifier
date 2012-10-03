@@ -1,5 +1,16 @@
 $(document).ready(function(e) {
-	$('#userpanel').hide(0);
+	//$('#userpanel').hide(0);
+	$('#showWelcome').click(function(e){
+		$('#tut').fadeOut(300,function(){
+			$('#welcome').fadeIn(300);	
+		});
+	});
+	$('#showTut').click(function(e){
+		$('#welcome').fadeOut(300,function(){
+			$('#tut').fadeIn(300);	
+		});
+	});
+	
     $('#btnLogin').click(function(e) {
 		waitting(false);
 		showStatus("Đang kết nối...", true);

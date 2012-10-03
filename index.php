@@ -33,12 +33,35 @@
                 <div id="loginpanel" class="columns same-height">
 
                     <div id="main-content-loginpanel" class="column elastic">
-                        <div id="welcome">
+                    	<div id="tut" style="display:none">
+	                        <h1 style="font-size:large">Hướng dẫn cách kiểm tra email nhanh nhất</h1>
+                            <a href="#" id="showWelcome">Giới thiệu về Attendance Notifier</a>
+                            <br/>
+                            <hr/>
+                            <h3>Hãy để máy tính kiểm tra email giúp bạn!</h3>
+							<p>Trong thời buổi hiện đại, email là không thể thiếu. Việc kiểm tra email thường xuyên là rất cần thiết để bạn có thể nắm bắt mọi thông tin quan trọng.</p>
+                            <div align="center"><img src="images/mailman.jpg"/></div>
+                            <p>Nếu bạn không có nhiều thời gian để truy cập vào hòm mail mỗi ngày, hãy để máy tính của bạn thực hiện công việc đó.</p>
+                            <p>Dưới đây là dự án "Những cách kiểm tra email nhanh nhất" do câu lạc bộ Cóc Dám Code thực hiện. Tài liệu này sẽ hướng dẫn cho bạn cách để luôn giám sát hòm mail của mình.</p>
+
+                            <div align="center">
+                                <h3>Cóc Dám Code - Những cách kiểm tra email nhanh nhất</h4>
+                                <a style="text-align:center;font-size:medium" target="_blank" href="files/CDC-check-mail.pdf">Tải về (PDF)</a>
+                                <br/>
+                                <img src="images/email.jpg"/>
+                            </div>
+                            <p>Hãy đọc và chọn cho mình một cách phù hợp. "Người thiếu thông tin là những người đánh mất cơ hội."</p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        
+                        <div id="welcome" >
                             <h1 style="font-size:large">Chào mừng các bạn đến với Attendance Notifier</h1>
+                            <a href="#" id="showTut">Hướng dẫn cách kiểm tra email nhanh nhất</a>
                             <br/>
                             <hr/>
                             <h3>Giới thiệu</h3>
-                            <p>Attendance Notifier là dịch vụ cho phép bạn theo dõi số buổi Absent của mình mỗi ngày.</p>
+                            <p>Attendance Notifier (A.N.) là dịch vụ cho phép bạn theo dõi số buổi Absent của mình mỗi ngày.</p>
 							<p>Dịch vụ sẽ gửi email về hộp thư của bạn mỗi khi bạn bị absent để bạn có thể theo dõi số buổi vắng học của mình, tránh bị cấm thi một cách lãng xẹt.</p>
                             <p>Dịch vụ cho phép bạn theo dõi số slot absent của tất cả các môn học. Gửi mail thông báo 2 lần một ngày (chỉ gửi nếu bạn absent).</p>
                             <hr/>
@@ -87,7 +110,7 @@
                     </div><!--end #sidebar-->
                 </div>
                 
-                <div id="userpanel" class="columns same-height">
+                <div id="userpanel" class="columns same-height" style="display:none">
                 	<div id="main-content-userpanel" class="column">
                         <div id="userpanel-welcome">
                             <h1>Xin chào <span id="lblName"></span>!</h1>
@@ -142,11 +165,7 @@
             </div><!--end #content-->
         </div>
 
-        <div id="footer" class="columns unit clearfix">
-            <div class="elastic clearfix">
-                <p>&copy; 2012 | Attendance Checker</p>
-            </div>
-        </div><!--end footer-->
+        <!--end footer-->
         <div class="clear"></div>
     </div><!--end #wrapper-->
 </body>
