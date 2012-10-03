@@ -37,8 +37,19 @@ ul, ol {
 #welcome {
 	font-size:smaller;
 }
+#tut {
+	font-size:smaller;
+}
+
 #welcome h1 {
     color:#DD4B39;
+	text-align:center;
+    margin:5px 10px;
+    padding:0;
+}
+#tut h1 {
+    color:#DD4B39;
+	text-align:center;
     margin:5px 10px;
     padding:0;
 }
@@ -46,6 +57,17 @@ ul, ol {
     padding:5px 10px;
     line-height: 20px;
     font-size:1.2em;
+}
+#tut p {
+    padding:5px 10px;
+    line-height: 20px;
+    font-size:1.2em;
+}
+#tut h3{
+	color:#D28715;
+	text-align:center;
+    margin:5px 10px;
+    padding:0;
 }
 #sidebar {
     margin-left:38px;
