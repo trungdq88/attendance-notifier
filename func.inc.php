@@ -211,6 +211,9 @@ function checkValid($subjectIds, $email, $emailFreq) {
 				$f++;
 			}
 		}
+		if (count($sub) > 5) {
+			$f++;
+		}
 	}
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$f++;
@@ -221,7 +224,7 @@ function checkValid($subjectIds, $email, $emailFreq) {
 	if ($f == 0) {
 		return "YES";
 	} else {
-		return "Dữ liệu không đúng định dạng! ";
+		return "Dữ liệu sai! (Lưu ý: bạn chỉ được chọn tối đa 6 môn học)";
 	}
 }
 
