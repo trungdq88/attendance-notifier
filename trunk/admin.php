@@ -6,13 +6,13 @@ function sendNewBlockMail() {
 	$nextBlock = "Block 2";
 	$term = "Fall 2012";
 
-	$sql = "SELECT `Name`, `Email` FROM `tblusers` WHERE 1";
+	$sql = "SELECT `Username`, `Name`, `Email` FROM `tblusers` WHERE 1";
 	$result = mysql_query($sql);
 	while ($row = mysql_fetch_assoc($result)) {
-		sendNotifMail($block, $nextBlock, $term, $row['Email'], $row['Name']);
+		$text = sendNotifMail($block, $nextBlock, $term, $row['Email'], $row['Name'], $row['Username']);
 	}
-	return 1;
+	return $text;
 }
 
-sendNewBlockMail();
+echo sendNewBlockMail();
 ?>
