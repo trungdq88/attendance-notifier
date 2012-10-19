@@ -141,9 +141,9 @@ $htmlContent = "
 	return sendMail($email, "[Attendance Notifier] Cảm ơn bạn đã đăng ký.", $htmlContent);
 }
 
-function sendNotifMail($block, $nextBlock, $term, $email, $name) {
+function sendNotifMail($block, $nextBlock, $term, $email, $name, $username) {
 $subjStr = "";
-	$sql = "SELECT `Name` FROM `tblatt`, `tblsubjects` WHERE tblatt.Username = '".mr($name)."' AND tblatt.SubjectID = tblsubjects.ID;";
+	$sql = "SELECT `Name` FROM `tblatt`, `tblsubjects` WHERE tblatt.Username = '".mr($username)."' AND tblatt.SubjectID = tblsubjects.ID;";
 	$result = mysql_query($sql);
 	while ($row = mysql_fetch_assoc($result)) {
 		$subjStr .= $row['Name'] . ",";
@@ -168,7 +168,7 @@ $htmlContent = "
 		</body>
 		</html>
 		";
-	return sendMail($email, "[A.N.] Thay đổi theo dõi môn học cho $nextBlock $term.", $htmlContent);
+	sendMail($email, "[A.N.] Thay đổi theo dõi môn học cho $nextBlock $term.", $htmlContent);
 }
 function isFirstLogin($username) {
 	$sql = "SELECT COUNT(*) FROM `tblusers` WHERE `Username` = '".mr($username)."';";
