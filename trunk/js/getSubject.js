@@ -8,7 +8,7 @@
 $(document).ready(function() {
     //parse jSon, append data to index.php
     var filterItem = new Array();
-    $.getJSON('js/subjects.json',function(data) {
+    $.getJSON('js/subjects.json?update=21oct',function(data) {
         var $html = '';
         $.each(data, function(index, category) {
             $html += '<div class="cat-box '+ category.category_name +'"><h1>'+ category.category_name +'</h1><ul>';

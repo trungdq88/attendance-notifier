@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/elastic.js"></script>
-    <script type="text/javascript" src="js/getSubject.js"></script>
+    <script type="text/javascript" src="js/getSubject.js?update=21oct"></script>
     <script type="text/javascript" src="js/action.js"></script>
     <title>Attendance Notifier</title>
     <link REL="SHORTCUT ICON" HREF="images/favicon.ico">
