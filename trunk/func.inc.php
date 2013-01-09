@@ -141,7 +141,7 @@ $htmlContent = "
 	return sendMail($email, "[Attendance Notifier] Cảm ơn bạn đã đăng ký.", $htmlContent);
 }
 
-function sendNotifMail($block, $nextBlock, $term, $email, $name, $username) {
+function sendNotifMail($block, $nextBlock, $term, $nextTerm, $email, $name, $username) {
 $subjStr = "";
 	$sql = "SELECT `Name` FROM `tblatt`, `tblsubjects` WHERE tblatt.Username = '".mr($username)."' AND tblatt.SubjectID = tblsubjects.ID;";
 	$result = mysql_query($sql);
@@ -159,7 +159,7 @@ $htmlContent = "
 		<h2>Chào bạn <strong>$name</strong>!</h2>
 		<p>Bạn đã đăng ký nhận mail thông báo Absent từ dịch vụ Attendance Notifier.</p>
 		<p>Môn học bạn đã đăng ký theo dõi là: <strong>$subjStr</strong>.</p>
-		<p><strong>$block</strong> học kỳ <strong>$term</strong> đã kết thúc, bạn vui lòng truy cập <a href= 'http://full.name.vn/att'>http://full.name.vn/att</a> để thay đổi môn học cho <strong>$nextBlock</strong> học kỳ <strong>$term</strong>.</p>
+		<p><strong>$block</strong> học kỳ <strong>$term</strong> đã kết thúc, bạn vui lòng truy cập <a href= 'http://full.name.vn/att'>http://full.name.vn/att</a> để thay đổi môn học cho <strong>$nextBlock</strong> học kỳ <strong>$nextTerm</strong>.</p>
 		<br />
 		<p>Để ngừng dịch vụ, bạn vui lòng đăng nhập vào <a href= 'http://full.name.vn/att'>http://full.name.vn/att</a>, sau đó chọn 'Không nhận mail' ở khung cài đặt.</p>
 		<br />
@@ -168,7 +168,7 @@ $htmlContent = "
 		</body>
 		</html>
 		";
-	sendMail($email, "[A.N.] Thay đổi theo dõi môn học cho $nextBlock $term.", $htmlContent);
+	sendMail($email, "[A.N.] Thay đổi theo dõi môn học cho $nextBlock $nextTerm.", $htmlContent);
 }
 function isFirstLogin($username) {
 	$sql = "SELECT COUNT(*) FROM `tblusers` WHERE `Username` = '".mr($username)."';";
